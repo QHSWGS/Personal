@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>React中的高阶组件 | 龙鱼混杂</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    <link rel="icon" href="https://pic1.zhimg.com/v2-6e0a159878fbd9af3ec10b5d15de24d7_r.jpg?source=1940ef5c">
+    <script src="/Personal/assets/js/bodyClick.js"></script>
+    <meta name="description" content="this is my blog">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <link rel="preload" href="/Personal/assets/css/0.styles.aa872aab.css" as="style"><link rel="preload" href="/Personal/assets/js/app.f4fc8495.js" as="script"><link rel="preload" href="/Personal/assets/js/3.1a2b93cd.js" as="script"><link rel="preload" href="/Personal/assets/js/1.79acb58f.js" as="script"><link rel="preload" href="/Personal/assets/js/140.d5802117.js" as="script"><link rel="prefetch" href="/Personal/assets/js/10.a49c5f0b.js"><link rel="prefetch" href="/Personal/assets/js/100.1a3e3eb5.js"><link rel="prefetch" href="/Personal/assets/js/101.08ac3fb7.js"><link rel="prefetch" href="/Personal/assets/js/102.a9b2daca.js"><link rel="prefetch" href="/Personal/assets/js/103.58fc6bba.js"><link rel="prefetch" href="/Personal/assets/js/104.c9df7557.js"><link rel="prefetch" href="/Personal/assets/js/105.e7fbf2ee.js"><link rel="prefetch" href="/Personal/assets/js/106.ae3164b1.js"><link rel="prefetch" href="/Personal/assets/js/107.d878be66.js"><link rel="prefetch" href="/Personal/assets/js/108.2ea511fb.js"><link rel="prefetch" href="/Personal/assets/js/109.69ef10b0.js"><link rel="prefetch" href="/Personal/assets/js/11.ed77b503.js"><link rel="prefetch" href="/Personal/assets/js/110.66966066.js"><link rel="prefetch" href="/Personal/assets/js/111.c5683ca3.js"><link rel="prefetch" href="/Personal/assets/js/112.bc304b6a.js"><link rel="prefetch" href="/Personal/assets/js/113.f75fe200.js"><link rel="prefetch" href="/Personal/assets/js/114.4820d77d.js"><link rel="prefetch" href="/Personal/assets/js/115.8bf012a3.js"><link rel="prefetch" href="/Personal/assets/js/116.e33bd317.js"><link rel="prefetch" href="/Personal/assets/js/117.8ddd1715.js"><link rel="prefetch" href="/Personal/assets/js/118.df4351d2.js"><link rel="prefetch" href="/Personal/assets/js/119.3b48fa25.js"><link rel="prefetch" href="/Personal/assets/js/12.1ee3adb4.js"><link rel="prefetch" href="/Personal/assets/js/120.00a19fa3.js"><link rel="prefetch" href="/Personal/assets/js/121.2c34c11f.js"><link rel="prefetch" href="/Personal/assets/js/122.16b2b2b7.js"><link rel="prefetch" href="/Personal/assets/js/123.0fc9246f.js"><link rel="prefetch" href="/Personal/assets/js/124.19c5d537.js"><link rel="prefetch" href="/Personal/assets/js/125.787eb55c.js"><link rel="prefetch" href="/Personal/assets/js/126.43d69565.js"><link rel="prefetch" href="/Personal/assets/js/127.7071dd9d.js"><link rel="prefetch" href="/Personal/assets/js/128.9a65da65.js"><link rel="prefetch" href="/Personal/assets/js/129.39cd3c08.js"><link rel="prefetch" href="/Personal/assets/js/13.cd926113.js"><link rel="prefetch" href="/Personal/assets/js/130.8ae39a89.js"><link rel="prefetch" href="/Personal/assets/js/131.353010d3.js"><link rel="prefetch" href="/Personal/assets/js/132.f55c3d5b.js"><link rel="prefetch" href="/Personal/assets/js/133.3d437d93.js"><link rel="prefetch" href="/Personal/assets/js/134.b5d29471.js"><link rel="prefetch" href="/Personal/assets/js/135.9b4cbfd4.js"><link rel="prefetch" href="/Personal/assets/js/136.b11fe81d.js"><link rel="prefetch" href="/Personal/assets/js/137.623758d3.js"><link rel="prefetch" href="/Personal/assets/js/138.2b832b20.js"><link rel="prefetch" href="/Personal/assets/js/139.416337fb.js"><link rel="prefetch" href="/Personal/assets/js/14.04246f24.js"><link rel="prefetch" href="/Personal/assets/js/141.fa9c119f.js"><link rel="prefetch" href="/Personal/assets/js/142.9c7ac1b7.js"><link rel="prefetch" href="/Personal/assets/js/143.d77a4017.js"><link rel="prefetch" href="/Personal/assets/js/144.a64be8e3.js"><link rel="prefetch" href="/Personal/assets/js/145.a5ae7e39.js"><link rel="prefetch" href="/Personal/assets/js/146.25b13628.js"><link rel="prefetch" href="/Personal/assets/js/147.2a360edc.js"><link rel="prefetch" href="/Personal/assets/js/148.b6a9d2c3.js"><link rel="prefetch" href="/Personal/assets/js/149.a4c1f3bd.js"><link rel="prefetch" href="/Personal/assets/js/15.f75ff2e0.js"><link rel="prefetch" href="/Personal/assets/js/150.3f5db931.js"><link rel="prefetch" href="/Personal/assets/js/151.8872fd5d.js"><link rel="prefetch" href="/Personal/assets/js/152.63f5447e.js"><link rel="prefetch" href="/Personal/assets/js/153.291e2de9.js"><link rel="prefetch" href="/Personal/assets/js/154.a53b5518.js"><link rel="prefetch" href="/Personal/assets/js/155.2a0482ef.js"><link rel="prefetch" href="/Personal/assets/js/156.1d152004.js"><link rel="prefetch" href="/Personal/assets/js/157.db8cd50a.js"><link rel="prefetch" href="/Personal/assets/js/158.ade80bfd.js"><link rel="prefetch" href="/Personal/assets/js/159.87aee519.js"><link rel="prefetch" href="/Personal/assets/js/16.48880203.js"><link rel="prefetch" href="/Personal/assets/js/160.58c27278.js"><link rel="prefetch" href="/Personal/assets/js/161.e90a6ca8.js"><link rel="prefetch" href="/Personal/assets/js/162.3f226b56.js"><link rel="prefetch" href="/Personal/assets/js/163.b98bf4af.js"><link rel="prefetch" href="/Personal/assets/js/164.a4852ef3.js"><link rel="prefetch" href="/Personal/assets/js/165.6e4f1b9c.js"><link rel="prefetch" href="/Personal/assets/js/166.2c756ea9.js"><link rel="prefetch" href="/Personal/assets/js/167.3246d70a.js"><link rel="prefetch" href="/Personal/assets/js/168.d3331d24.js"><link rel="prefetch" href="/Personal/assets/js/169.ed110c3d.js"><link rel="prefetch" href="/Personal/assets/js/17.4d9e5368.js"><link rel="prefetch" href="/Personal/assets/js/170.59fcca25.js"><link rel="prefetch" href="/Personal/assets/js/171.e562d250.js"><link rel="prefetch" href="/Personal/assets/js/172.2b3762d3.js"><link rel="prefetch" href="/Personal/assets/js/173.cf63fe79.js"><link rel="prefetch" href="/Personal/assets/js/174.024e1151.js"><link rel="prefetch" href="/Personal/assets/js/175.81254c73.js"><link rel="prefetch" href="/Personal/assets/js/176.c8d6f3bd.js"><link rel="prefetch" href="/Personal/assets/js/177.6a90efc4.js"><link rel="prefetch" href="/Personal/assets/js/178.87b713d1.js"><link rel="prefetch" href="/Personal/assets/js/179.e1015179.js"><link rel="prefetch" href="/Personal/assets/js/18.86e329d3.js"><link rel="prefetch" href="/Personal/assets/js/180.439e7595.js"><link rel="prefetch" href="/Personal/assets/js/181.1561fbab.js"><link rel="prefetch" href="/Personal/assets/js/182.ecf8b768.js"><link rel="prefetch" href="/Personal/assets/js/183.9fefc87a.js"><link rel="prefetch" href="/Personal/assets/js/184.4ab0aef5.js"><link rel="prefetch" href="/Personal/assets/js/185.a66896dc.js"><link rel="prefetch" href="/Personal/assets/js/186.2e07d4fc.js"><link rel="prefetch" href="/Personal/assets/js/187.eb906915.js"><link rel="prefetch" href="/Personal/assets/js/188.b9b037da.js"><link rel="prefetch" href="/Personal/assets/js/189.b1e46ae2.js"><link rel="prefetch" href="/Personal/assets/js/19.53697652.js"><link rel="prefetch" href="/Personal/assets/js/190.7f307253.js"><link rel="prefetch" href="/Personal/assets/js/191.29aac062.js"><link rel="prefetch" href="/Personal/assets/js/192.ba9eb13b.js"><link rel="prefetch" href="/Personal/assets/js/193.d6cbe7dd.js"><link rel="prefetch" href="/Personal/assets/js/194.0887295f.js"><link rel="prefetch" href="/Personal/assets/js/195.4b282872.js"><link rel="prefetch" href="/Personal/assets/js/196.b732f52d.js"><link rel="prefetch" href="/Personal/assets/js/197.bc0f71d1.js"><link rel="prefetch" href="/Personal/assets/js/198.aa5edaac.js"><link rel="prefetch" href="/Personal/assets/js/199.e3b5606a.js"><link rel="prefetch" href="/Personal/assets/js/20.9b1bc220.js"><link rel="prefetch" href="/Personal/assets/js/200.3d0bd63b.js"><link rel="prefetch" href="/Personal/assets/js/201.beb38f5c.js"><link rel="prefetch" href="/Personal/assets/js/202.23ec2fa7.js"><link rel="prefetch" href="/Personal/assets/js/203.14482202.js"><link rel="prefetch" href="/Personal/assets/js/204.abef9627.js"><link rel="prefetch" href="/Personal/assets/js/205.b986f8ff.js"><link rel="prefetch" href="/Personal/assets/js/206.d46a9d24.js"><link rel="prefetch" href="/Personal/assets/js/207.b9564609.js"><link rel="prefetch" href="/Personal/assets/js/208.6ddc5da4.js"><link rel="prefetch" href="/Personal/assets/js/209.aecb193a.js"><link rel="prefetch" href="/Personal/assets/js/21.5c97d83a.js"><link rel="prefetch" href="/Personal/assets/js/210.277e67b6.js"><link rel="prefetch" href="/Personal/assets/js/211.c3fdefd3.js"><link rel="prefetch" href="/Personal/assets/js/22.b51bf18f.js"><link rel="prefetch" href="/Personal/assets/js/23.05a6964c.js"><link rel="prefetch" href="/Personal/assets/js/24.6ed15e3e.js"><link rel="prefetch" href="/Personal/assets/js/25.a82c45fd.js"><link rel="prefetch" href="/Personal/assets/js/26.d92c9c4d.js"><link rel="prefetch" href="/Personal/assets/js/27.1df62d5b.js"><link rel="prefetch" href="/Personal/assets/js/28.f1c047bc.js"><link rel="prefetch" href="/Personal/assets/js/29.db3611ef.js"><link rel="prefetch" href="/Personal/assets/js/30.77ae27c3.js"><link rel="prefetch" href="/Personal/assets/js/31.b5ebe6fa.js"><link rel="prefetch" href="/Personal/assets/js/32.959eac22.js"><link rel="prefetch" href="/Personal/assets/js/33.36410f30.js"><link rel="prefetch" href="/Personal/assets/js/34.3dce65a1.js"><link rel="prefetch" href="/Personal/assets/js/35.63a0c610.js"><link rel="prefetch" href="/Personal/assets/js/36.5e273bab.js"><link rel="prefetch" href="/Personal/assets/js/37.005d77eb.js"><link rel="prefetch" href="/Personal/assets/js/38.ce8a0bc2.js"><link rel="prefetch" href="/Personal/assets/js/39.f86f3b45.js"><link rel="prefetch" href="/Personal/assets/js/4.3f3e0870.js"><link rel="prefetch" href="/Personal/assets/js/40.18e9b849.js"><link rel="prefetch" href="/Personal/assets/js/41.047678c3.js"><link rel="prefetch" href="/Personal/assets/js/42.393a4870.js"><link rel="prefetch" href="/Personal/assets/js/43.4cd452a3.js"><link rel="prefetch" href="/Personal/assets/js/44.74e152ac.js"><link rel="prefetch" href="/Personal/assets/js/45.20725514.js"><link rel="prefetch" href="/Personal/assets/js/46.a962bb25.js"><link rel="prefetch" href="/Personal/assets/js/47.8a900fbb.js"><link rel="prefetch" href="/Personal/assets/js/48.a7cbd1e2.js"><link rel="prefetch" href="/Personal/assets/js/49.9c8e57f2.js"><link rel="prefetch" href="/Personal/assets/js/5.ef0ede61.js"><link rel="prefetch" href="/Personal/assets/js/50.de1ddde5.js"><link rel="prefetch" href="/Personal/assets/js/51.131de45a.js"><link rel="prefetch" href="/Personal/assets/js/52.99fb0ef8.js"><link rel="prefetch" href="/Personal/assets/js/53.bf0e209a.js"><link rel="prefetch" href="/Personal/assets/js/54.7415dd40.js"><link rel="prefetch" href="/Personal/assets/js/55.a77b1a46.js"><link rel="prefetch" href="/Personal/assets/js/56.a2c7e68a.js"><link rel="prefetch" href="/Personal/assets/js/57.c09bff88.js"><link rel="prefetch" href="/Personal/assets/js/58.627f2235.js"><link rel="prefetch" href="/Personal/assets/js/59.f1b6e347.js"><link rel="prefetch" href="/Personal/assets/js/6.520a7409.js"><link rel="prefetch" href="/Personal/assets/js/60.7f4dcf0e.js"><link rel="prefetch" href="/Personal/assets/js/61.dbc144bb.js"><link rel="prefetch" href="/Personal/assets/js/62.d86d4b1f.js"><link rel="prefetch" href="/Personal/assets/js/63.81e3d1e7.js"><link rel="prefetch" href="/Personal/assets/js/64.6f98c9d3.js"><link rel="prefetch" href="/Personal/assets/js/65.16d7cf1b.js"><link rel="prefetch" href="/Personal/assets/js/66.09145e02.js"><link rel="prefetch" href="/Personal/assets/js/67.b89ccdd2.js"><link rel="prefetch" href="/Personal/assets/js/68.58d3cc6f.js"><link rel="prefetch" href="/Personal/assets/js/69.45caa885.js"><link rel="prefetch" href="/Personal/assets/js/7.e5be3dfe.js"><link rel="prefetch" href="/Personal/assets/js/70.a3a8f4f5.js"><link rel="prefetch" href="/Personal/assets/js/71.673d3b16.js"><link rel="prefetch" href="/Personal/assets/js/72.5b0db3fd.js"><link rel="prefetch" href="/Personal/assets/js/73.2a1193ad.js"><link rel="prefetch" href="/Personal/assets/js/74.636a66d7.js"><link rel="prefetch" href="/Personal/assets/js/75.a4b97eae.js"><link rel="prefetch" href="/Personal/assets/js/76.da601374.js"><link rel="prefetch" href="/Personal/assets/js/77.e2320417.js"><link rel="prefetch" href="/Personal/assets/js/78.019a8e6c.js"><link rel="prefetch" href="/Personal/assets/js/79.e428df0f.js"><link rel="prefetch" href="/Personal/assets/js/8.f084bd8d.js"><link rel="prefetch" href="/Personal/assets/js/80.347bfe47.js"><link rel="prefetch" href="/Personal/assets/js/81.f0d4a51c.js"><link rel="prefetch" href="/Personal/assets/js/82.b06c0160.js"><link rel="prefetch" href="/Personal/assets/js/83.63f5d291.js"><link rel="prefetch" href="/Personal/assets/js/84.f9df3d6a.js"><link rel="prefetch" href="/Personal/assets/js/85.80fd9820.js"><link rel="prefetch" href="/Personal/assets/js/86.2e5a350d.js"><link rel="prefetch" href="/Personal/assets/js/87.3fb920e1.js"><link rel="prefetch" href="/Personal/assets/js/88.2a637f74.js"><link rel="prefetch" href="/Personal/assets/js/89.c6f07c38.js"><link rel="prefetch" href="/Personal/assets/js/9.157533ff.js"><link rel="prefetch" href="/Personal/assets/js/90.c2c8d4d0.js"><link rel="prefetch" href="/Personal/assets/js/91.0bb7cc21.js"><link rel="prefetch" href="/Personal/assets/js/92.992da0e1.js"><link rel="prefetch" href="/Personal/assets/js/93.296c0ac8.js"><link rel="prefetch" href="/Personal/assets/js/94.8e924bb2.js"><link rel="prefetch" href="/Personal/assets/js/95.aff97b76.js"><link rel="prefetch" href="/Personal/assets/js/96.d6e852e5.js"><link rel="prefetch" href="/Personal/assets/js/97.b5a8dacf.js"><link rel="prefetch" href="/Personal/assets/js/98.daacdacf.js"><link rel="prefetch" href="/Personal/assets/js/99.347b0d6f.js">
+    <link rel="stylesheet" href="/Personal/assets/css/0.styles.aa872aab.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-7a6c954e><div data-v-7a6c954e><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-7a6c954e data-v-7a6c954e><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-548f7490 data-v-7a6c954e data-v-7a6c954e><h3 class="title" style="display:none;" data-v-548f7490 data-v-548f7490>龙鱼混杂</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-548f7490 data-v-548f7490><input type="password" value="" data-v-548f7490> <span data-v-548f7490>Konck! Knock!</span> <button data-v-548f7490>OK</button></label> <div class="footer" style="display:none;" data-v-548f7490 data-v-548f7490><span data-v-548f7490><i class="iconfont reco-theme" data-v-548f7490></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-548f7490>vuePress-theme-reco</a></span> <span data-v-548f7490><i class="iconfont reco-copyright" data-v-548f7490></i> <a data-v-548f7490><span data-v-548f7490>QHS</span>
+            
+          <span data-v-548f7490>2018 - </span>
+          2023
+        </a></span></div></div> <div class="hide" data-v-7a6c954e><header class="navbar" data-v-7a6c954e><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/Personal/" class="home-link router-link-active"><img src="/Personal/img.png" alt="龙鱼混杂" class="logo"> <span class="site-name">龙鱼混杂</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/Personal/" class="nav-link"><i class="iconfont undefined"></i>
+  首页
+</a></div><div class="nav-item"><a href="/Personal/docs/foo/" class="nav-link router-link-active"><i class="iconfont undefined"></i>
+  学习路线
+</a></div><div class="nav-item"><a href="/Personal/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  无关紧要的小标签
+</a></div><div class="nav-item"><a href="/Personal/docs/practice/" class="nav-link"><i class="iconfont undefined"></i>
+  项目实战
+</a></div><div class="nav-item"><a href="/Personal/docs/articles/" class="nav-link"><i class="iconfont undefined"></i>
+  零散文章
+</a></div><div class="nav-item"><a href="/Personal/docs/together/" class="nav-link"><i class="iconfont undefined"></i>
+  一起学习
+</a></div><div class="nav-item"><a href="https://github.com/QHSWGS" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont undefined"></i>
+  github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-7a6c954e></div> <aside class="sidebar" data-v-7a6c954e><div class="personal-info-wrapper" data-v-ec2c9702 data-v-7a6c954e><img src="/Personal/img_1.png" alt="author-avatar" class="personal-img" data-v-ec2c9702> <h3 class="name" data-v-ec2c9702>
+    QHS
+  </h3> <div class="num" data-v-ec2c9702><div data-v-ec2c9702><h3 data-v-ec2c9702>42</h3> <h6 data-v-ec2c9702>文章</h6></div> <div data-v-ec2c9702><h3 data-v-ec2c9702>10</h3> <h6 data-v-ec2c9702>标签</h6></div></div> <hr data-v-ec2c9702></div> <nav class="nav-links"><div class="nav-item"><a href="/Personal/" class="nav-link"><i class="iconfont undefined"></i>
+  首页
+</a></div><div class="nav-item"><a href="/Personal/docs/foo/" class="nav-link router-link-active"><i class="iconfont undefined"></i>
+  学习路线
+</a></div><div class="nav-item"><a href="/Personal/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  无关紧要的小标签
+</a></div><div class="nav-item"><a href="/Personal/docs/practice/" class="nav-link"><i class="iconfont undefined"></i>
+  项目实战
+</a></div><div class="nav-item"><a href="/Personal/docs/articles/" class="nav-link"><i class="iconfont undefined"></i>
+  零散文章
+</a></div><div class="nav-item"><a href="/Personal/docs/together/" class="nav-link"><i class="iconfont undefined"></i>
+  一起学习
+</a></div><div class="nav-item"><a href="https://github.com/QHSWGS" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont undefined"></i>
+  github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>css学习路线</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JavaScript学习路线</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>React学习路线</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/Personal/docs/foo/React/Context与Reducer.html" class="sidebar-link">Context与Reducer</a></li><li><a href="/Personal/docs/foo/React/Hooks与事件绑定.html" class="sidebar-link">Hooks与事件绑定</a></li><li><a href="/Personal/docs/foo/React/Hooks与普通函数的区别.html" class="sidebar-link">Hooks与普通函数的区别</a></li><li><a href="/Personal/docs/foo/React/Hooks中的useState.html" class="sidebar-link">Hooks中的useState</a></li><li><a href="/Personal/docs/foo/React/Mobx与Redux的异同.html" class="sidebar-link">Mobx与Redux的异同</a></li><li><a href="/Personal/docs/foo/React/ReactRouter的实现.html" class="sidebar-link">ReactRouter的实现</a></li><li><a href="/Personal/docs/foo/React/React中diff算法的理解.html" class="sidebar-link">React中diff算法的理解</a></li><li><a href="/Personal/docs/foo/React/React中JSX的理解.html" class="sidebar-link">React中JSX的理解</a></li><li><a href="/Personal/docs/foo/React/React中refs的理解.html" class="sidebar-link">React中refs的理解</a></li><li><a href="/Personal/docs/foo/React/React中的合成事件.html" class="sidebar-link">React中的合成事件</a></li><li><a href="/Personal/docs/foo/React/React中的纯组件.html" class="sidebar-link">React中的纯组件</a></li><li><a href="/Personal/docs/foo/React/React中的高阶组件.html" class="active sidebar-link">React中的高阶组件</a></li><li><a href="/Personal/docs/foo/React/React中组件间通信的方式.html" class="sidebar-link">React中组件间通信的方式</a></li><li><a href="/Personal/docs/foo/React/React生命周期.html" class="sidebar-link">React生命周期</a></li><li><a href="/Personal/docs/foo/React/React组件复用的方式.html" class="sidebar-link">React组件复用的方式</a></li><li><a href="/Personal/docs/foo/React/React组件的state和props.html" class="sidebar-link">React组件的state和props</a></li><li><a href="/Personal/docs/foo/React/React虚拟DOM的理解.html" class="sidebar-link">React虚拟DOM的理解</a></li><li><a href="/Personal/docs/foo/React/setState同步异步场景.html" class="sidebar-link">setState同步异步场景</a></li><li><a href="/Personal/docs/foo/React/useEffect与useLayoutEffect.html" class="sidebar-link">useEffect与useLayoutEffect</a></li><li><a href="/Personal/docs/foo/React/useMemo与useCallback.html" class="sidebar-link">useMemo与useCallback</a></li><li><a href="/Personal/docs/foo/React/受控组件和非受控组件.html" class="sidebar-link">受控组件和非受控组件</a></li><li><a href="/Personal/docs/foo/React/手写useState与useEffect.html" class="sidebar-link">手写useState与useEffect</a></li><li><a href="/Personal/docs/foo/React/有状态和无状态组件.html" class="sidebar-link">有状态和无状态组件</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue学习路线</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-548f7490 data-v-7a6c954e><h3 class="title" style="display:none;" data-v-548f7490 data-v-548f7490></h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-548f7490 data-v-548f7490><input type="password" value="" data-v-548f7490> <span data-v-548f7490>Konck! Knock!</span> <button data-v-548f7490>OK</button></label> <div class="footer" style="display:none;" data-v-548f7490 data-v-548f7490><span data-v-548f7490><i class="iconfont reco-theme" data-v-548f7490></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-548f7490>vuePress-theme-reco</a></span> <span data-v-548f7490><i class="iconfont reco-copyright" data-v-548f7490></i> <a data-v-548f7490><span data-v-548f7490>QHS</span>
+            
+          <span data-v-548f7490>2018 - </span>
+          2023
+        </a></span></div></div> <div data-v-7a6c954e><main class="page"><div class="page-title" style="display:none;"><h1>React中的高阶组件</h1> <div data-v-01d8a6a8><i class="iconfont reco-account" data-v-01d8a6a8><span data-v-01d8a6a8>QHS</span></i> <!----> <!----> <!----></div></div> <div class="theme-reco-content content__default" style="display:none;"><h1 id="react中的高阶组件"><a href="#react中的高阶组件" class="header-anchor">#</a> React中的高阶组件</h1> <p>高阶组件<code>HOC</code>即<code>Higher Order Component</code>是<code>React</code>中用于复用组件逻辑的一种高级技巧，<code>HOC</code>自身不是<code>React API</code>的一部分，它是一种基于<code>React</code>的组合特性而形成的设计模式。</p> <h2 id="描述"><a href="#描述" class="header-anchor">#</a> 描述</h2> <p>高阶组件从名字上就透漏出高级的气息，实际上这个概念应该是源自于<code>JavaScript</code>的高阶函数，高阶函数就是接受函数作为输入或者输出的函数，可以想到柯里化就是一种高阶函数，同样在<code>React</code>文档上也给出了高阶组件的定义，高阶组件是接收组件并返回新组件的函数。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>A higher-order component is a function that takes a component and returns a new component.
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>具体而言，高阶组件是参数为组件，返回值为新组件的函数，组件是将<code>props</code>转换为<code>UI</code>，而高阶组件是将组件转换为另一个组件。<code>HOC</code>在<code>React</code>的第三方库中很常见，例如<code>Redux</code>的<code>connect</code>和<code>Relay</code>的<code>createFragmentContainer</code>。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 高阶组件定义
+const higherOrderComponent = (WrappedComponent) =&gt; {
+    return class EnhancedComponent extends React.Component {
+        // ...
+        render() {
+          return &lt;WrappedComponent {...this.props} /&gt;;
+        }
+  };
+}
+
+// 普通组件定义
+class WrappedComponent extends React.Component{
+    render(){
+        //....
+    }
+}
+
+// 返回被高阶组件包装过的增强组件
+const EnhancedComponent = higherOrderComponent(WrappedComponent);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><p>在这里要注意，不要试图以任何方式在<code>HOC</code>中修改组件原型，而应该使用组合的方式，通过将组件包装在容器组件中实现功能。通常情况下，实现高阶组件的方式有以下两种:</p> <ul><li>属性代理<code>Props Proxy</code>。</li> <li>反向继承<code>Inheritance Inversion</code>。</li></ul> <h3 id="属性代理"><a href="#属性代理" class="header-anchor">#</a> 属性代理</h3> <p>例如我们可以为传入的组件增加一个存储中的<code>id</code>属性值，通过高阶组件我们就可以为这个组件新增一个<code>props</code>，当然我们也可以对在<code>JSX</code>中的<code>WrappedComponent</code>组件中<code>props</code>进行操作，注意不是操作传入的<code>WrappedComponent</code>类，我们不应该直接修改传入的组件，而可以在组合的过程中对其操作。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const HOC = (WrappedComponent, store) =&gt; {
+    return class EnhancedComponent extends React.Component {
+        render() {
+            const newProps = {
+                id: store.id
+            }
+            return &lt;WrappedComponent
+                {...this.props}
+                {...newProps}
+            /&gt;;
+        }
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><p>我们也可以利用高阶组件将新组件的状态装入到被包装组件中，例如我们可以使用高阶组件将非受控组件转化为受控组件。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>class WrappedComponent extends React.Component {
+    render() {
+        return &lt;input name=&quot;name&quot; /&gt;;
+    }
+}
+
+const HOC = (WrappedComponent) =&gt; {
+    return class EnhancedComponent extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = { name: &quot;&quot; };
+        }
+        render() {
+            const newProps = {
+                value: this.state.name,
+                onChange: e =&gt; this.setState({name: e.target.value}),
+            }
+            return &lt;WrappedComponent 
+                {...this.props} 
+                {...newProps} 
+            /&gt;;
+        }
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><p>或者我们的目的是将其使用其他组件包裹起来用以达成布局或者是样式的目的。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const HOC = (WrappedComponent) =&gt; {
+    return class EnhancedComponent extends React.Component {
+        render() {
+            return (
+                &lt;div class=&quot;layout&quot;&gt;
+                    &lt;WrappedComponent  {...this.props} /&gt;
+                &lt;/div&gt;
+            );
+        }
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><h3 id="反向继承"><a href="#反向继承" class="header-anchor">#</a> 反向继承</h3> <p>反向继承是指返回的组件去继承之前的组件，在反向继承中我们可以做非常多的操作，修改<code>state</code>、<code>props</code>甚至是翻转<code>Element Tree</code>，反向继承有一个重要的点，反向继承不能保证完整的子组件树被解析，也就是说解析的元素树中包含了组件(函数类型或者<code>Class</code>类型)，就不能再操作组件的子组件了。<br>
+当我们使用反向继承实现高阶组件的时候可以通过渲染劫持来控制渲染，具体是指我们可以有意识地控制<code>WrappedComponent</code>的渲染过程，从而控制渲染控制的结果，例如我们可以根据部分参数去决定是否渲染组件。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const HOC = (WrappedComponent) =&gt; {
+    return class EnhancedComponent extends WrappedComponent {
+        render() {
+            return this.props.isRender &amp;&amp; super.render();  
+        }
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>甚至我们可以通过重写的方式劫持原组件的生命周期。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const HOC = (WrappedComponent) =&gt; {
+    return class EnhancedComponent extends WrappedComponent {
+        componentDidMount(){
+          // ...
+        }
+        render() {
+            return super.render();  
+        }
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p>由于实际上是继承关系，我们可以去读取组件的<code>props</code>和<code>state</code>，如果有必要的话，甚至可以修改增加、修改和删除<code>props</code>和<code>state</code>，当然前提是修改带来的风险需要你自己来控制。在一些情况下，我们可能需要为高阶属性传入一些参数，那我们就可以通过柯里化的形式传入参数，配合高阶组件可以完成对组件的类似于闭包的操作。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const HOCFactoryFactory = (params) =&gt; {
+    // 此处操作params
+    return (WrappedComponent) =&gt; {
+        return class EnhancedComponent extends WrappedComponent {
+            render() {
+                return params.isRender &amp;&amp; this.props.isRender &amp;&amp; super.render();
+            }
+        }
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><h2 id="hoc与mixin"><a href="#hoc与mixin" class="header-anchor">#</a> HOC与Mixin</h2> <p>使用<code>Mixin</code>与<code>HOC</code>都可以用于解决横切关注点相关的问题。<br> <code>Mixin</code>是一种混入的模式，在实际使用中<code>Mixin</code>的作用还是非常强大的，能够使得我们在多个组件中共用相同的方法，但同样也会给组件不断增加新的方法和属性，组件本身不仅可以感知，甚至需要做相关的处理(例如命名冲突、状态维护等)，一旦混入的模块变多时，整个组件就变的难以维护，<code>Mixin</code>可能会引入不可见的属性，例如在渲染组件中使用<code>Mixin</code>方法，给组件带来了不可见的属性<code>props</code>和状态<code>state</code>，并且<code>Mixin</code>可能会相互依赖，相互耦合，不利于代码维护，此外不同的<code>Mixin</code>中的方法可能会相互冲突。之前<code>React</code>官方建议使用<code>Mixin</code>用于解决横切关注点相关的问题，但由于使用<code>Mixin</code>可能会产生更多麻烦，所以官方现在推荐使用<code>HOC</code>。<br>
+高阶组件<code>HOC</code>属于函数式编程<code>functional programming</code>思想，对于被包裹的组件时不会感知到高阶组件的存在，而高阶组件返回的组件会在原来的组件之上具有功能增强的效果，基于此<code>React</code>官方推荐使用高阶组件。</p> <h2 id="注意"><a href="#注意" class="header-anchor">#</a> 注意</h2> <h3 id="不要改变原始组件"><a href="#不要改变原始组件" class="header-anchor">#</a> 不要改变原始组件</h3> <p>不要试图在<code>HOC</code>中修改组件原型，或以其他方式改变它。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function logProps(InputComponent) {
+  InputComponent.prototype.componentDidUpdate = function(prevProps) {
+    console.log(&quot;Current props: &quot;, this.props);
+    console.log(&quot;Previous props: &quot;, prevProps);
+  };
+  // 返回原始的 input 组件，其已经被修改。
+  return InputComponent;
+}
+
+// 每次调用 logProps 时，增强组件都会有 log 输出。
+const EnhancedComponent = logProps(InputComponent);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>这样做会产生一些不良后果，其一是输入组件再也无法像<code>HOC</code>增强之前那样使用了，更严重的是，如果你再用另一个同样会修改<code>componentDidUpdate</code>的<code>HOC</code>增强它，那么前面的<code>HOC</code>就会失效，同时这个<code>HOC</code>也无法应用于没有生命周期的函数组件。<br>
+修改传入组件的<code>HOC</code>是一种糟糕的抽象方式，调用者必须知道他们是如何实现的，以避免与其他<code>HOC</code>发生冲突。<code>HOC</code>不应该修改传入组件，而应该使用组合的方式，通过将组件包装在容器组件中实现功能。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function logProps(WrappedComponent) {
+  return class extends React.Component {
+    componentDidUpdate(prevProps) {
+      console.log(&quot;Current props: &quot;, this.props);
+      console.log(&quot;Previous props: &quot;, prevProps);
+    }
+    render() {
+      // 将 input 组件包装在容器中，而不对其进行修改，Nice!
+      return &lt;WrappedComponent {...this.props} /&gt;;
+    }
+  }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><h3 id="过滤props"><a href="#过滤props" class="header-anchor">#</a> 过滤props</h3> <p><code>HOC</code>为组件添加特性，自身不应该大幅改变约定，<code>HOC</code>返回的组件与原组件应保持类似的接口。<code>HOC</code>应该透传与自身无关的<code>props</code>，大多数<code>HOC</code>都应该包含一个类似于下面的<code>render</code>方法。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>render() {
+  // 过滤掉额外的 props，且不要进行透传
+  const { extraProp, ...passThroughProps } = this.props;
+
+  // 将 props 注入到被包装的组件中。
+  // 通常为 state 的值或者实例方法。
+  const injectedProp = someStateOrInstanceMethod;
+
+  // 将 props 传递给被包装组件
+  return (
+    &lt;WrappedComponent
+      injectedProp={injectedProp}
+      {...passThroughProps}
+    /&gt;
+  );
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><h3 id="最大化可组合性"><a href="#最大化可组合性" class="header-anchor">#</a> 最大化可组合性</h3> <p>并不是所有的<code>HOC</code>都一样，有时候它仅接受一个参数，也就是被包裹的组件。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const NavbarWithRouter = withRouter(Navbar);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p><code>HOC</code>通常可以接收多个参数，比如在<code>Relay</code>中<code>HOC</code>额外接收了一个配置对象用于指定组件的数据依赖。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const CommentWithRelay = Relay.createContainer(Comment, config);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>最常见的<code>HOC</code>签名如下，<code>connect</code>是一个返回高阶组件的高阶函数。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// React Redux 的 `connect` 函数
+const ConnectedComment = connect(commentSelector, commentActions)(CommentList);
+
+// connect 是一个函数，它的返回值为另外一个函数。
+const enhance = connect(commentListSelector, commentListActions);
+// 返回值为 HOC，它会返回已经连接 Redux store 的组件
+const ConnectedComment = enhance(CommentList);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>这种形式可能看起来令人困惑或不必要，但它有一个有用的属性，像<code>connect</code>函数返回的单参数<code>HOC</code>具有签名<code>Component =&gt; Component</code>，输出类型与输入类型相同的函数很容易组合在一起。同样的属性也允许<code>connect</code>和其他<code>HOC</code>承担装饰器的角色。此外许多第三方库都提供了<code>compose</code>工具函数，包括<code>lodash</code>、<code>Redux</code>和<code>Ramda</code>。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const EnhancedComponent = withRouter(connect(commentSelector)(WrappedComponent))
+
+// 你可以编写组合工具函数
+// compose(f, g, h) 等同于 (...args) =&gt; f(g(h(...args)))
+const enhance = compose(
+  // 这些都是单参数的 HOC
+  withRouter,
+  connect(commentSelector)
+)
+const EnhancedComponent = enhance(WrappedComponent)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><h3 id="不要在render方法中使用hoc"><a href="#不要在render方法中使用hoc" class="header-anchor">#</a> 不要在render方法中使用HOC</h3> <p><code>React</code>的<code>diff</code>算法使用组件标识来确定它是应该更新现有子树还是将其丢弃并挂载新子树，如果从<code>render</code>返回的组件与前一个渲染中的组件相同<code>===</code>，则<code>React</code>通过将子树与新子树进行区分来递归更新子树，如果它们不相等，则完全卸载前一个子树。<br>
+通常在使用的时候不需要考虑这点，但对<code>HOC</code>来说这一点很重要，因为这代表着你不应在组件的<code>render</code>方法中对一个组件应用<code>HOC</code>。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>render() {
+  // 每次调用 render 函数都会创建一个新的 EnhancedComponent
+  // EnhancedComponent1 !== EnhancedComponent2
+  const EnhancedComponent = enhance(MyComponent);
+  // 这将导致子树每次渲染都会进行卸载，和重新挂载的操作！
+  return &lt;EnhancedComponent /&gt;;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>这不仅仅是性能问题，重新挂载组件会导致该组件及其所有子组件的状态丢失，如果在组件之外创建<code>HOC</code>，这样一来组件只会创建一次。因此每次<code>render</code>时都会是同一个组件，一般来说，这跟你的预期表现是一致的。在极少数情况下，你需要动态调用<code>HOC</code>，你可以在组件的生命周期方法或其构造函数中进行调用。</p> <h3 id="务必复制静态方法"><a href="#务必复制静态方法" class="header-anchor">#</a> 务必复制静态方法</h3> <p>有时在<code>React</code>组件上定义静态方法很有用，例如<code>Relay</code>容器暴露了一个静态方法<code>getFragment</code>以方便组合<code>GraphQL</code>片段。但是当你将<code>HOC</code>应用于组件时，原始组件将使用容器组件进行包装，这意味着新组件没有原始组件的任何静态方法。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 定义静态函数
+WrappedComponent.staticMethod = function() {/*...*/}
+// 现在使用 HOC
+const EnhancedComponent = enhance(WrappedComponent);
+
+// 增强组件没有 staticMethod
+typeof EnhancedComponent.staticMethod === &quot;undefined&quot; // true
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>为了解决这个问题，你可以在返回之前把这些方法拷贝到容器组件上。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function enhance(WrappedComponent) {
+  class Enhance extends React.Component {/*...*/}
+  // 必须准确知道应该拷贝哪些方法 :(
+  Enhance.staticMethod = WrappedComponent.staticMethod;
+  return Enhance;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>但要这样做，你需要知道哪些方法应该被拷贝，你可以使用<code>hoist-non-react-statics</code>依赖自动拷贝所有非<code>React</code>静态方法。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>import hoistNonReactStatic from &quot;hoist-non-react-statics&quot;;
+function enhance(WrappedComponent) {
+  class Enhance extends React.Component {/*...*/}
+  hoistNonReactStatic(Enhance, WrappedComponent);
+  return Enhance;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>除了导出组件，另一个可行的方案是再额外导出这个静态方法。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 使用这种方式代替...
+MyComponent.someFunction = someFunction;
+export default MyComponent;
+
+// ...单独导出该方法...
+export { someFunction };
+
+// ...并在要使用的组件中，import 它们
+import MyComponent, { someFunction } from &quot;./MyComponent.js&quot;;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h3 id="refs不会被传递"><a href="#refs不会被传递" class="header-anchor">#</a> Refs不会被传递</h3> <p>虽然高阶组件的约定是将所有<code>props</code>传递给被包装组件，但这对于<code>refs</code>并不适用，那是因为<code>ref</code>实际上并不是一个<code>prop</code>，就像<code>key</code>一样，它是由<code>React</code>专门处理的。如果将<code>ref</code>添加到<code>HOC</code>的返回组件中，则<code>ref</code>引用指向容器组件，而不是被包装组件，这个问题可以通过<code>React.forwardRef</code>这个<code>API</code>明确地将<code>refs</code>转发到内部的组件。。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function logProps(Component) {
+  class LogProps extends React.Component {
+    componentDidUpdate(prevProps) {
+      console.log('old props:', prevProps);
+      console.log('new props:', this.props);
+    }
+
+    render() {
+      const {forwardedRef, ...rest} = this.props;
+
+      // 将自定义的 prop 属性 “forwardedRef” 定义为 ref
+      return &lt;Component ref={forwardedRef} {...rest} /&gt;;
+    }
+  }
+
+  // 注意 React.forwardRef 回调的第二个参数 “ref”。
+  // 我们可以将其作为常规 prop 属性传递给 LogProps，例如 “forwardedRef”
+  // 然后它就可以被挂载到被 LogProps 包裹的子组件上。
+  return React.forwardRef((props, ref) =&gt; {
+    return &lt;LogProps {...props} forwardedRef={ref} /&gt;;
+  });
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><h2 id="示例"><a href="#示例" class="header-anchor">#</a> 示例</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+    &lt;title&gt;React&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;div id=&quot;root&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;script src=&quot;https://unpkg.com/react@17/umd/react.development.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/react-dom@17/umd/react-dom.development.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@babel/standalone/babel.min.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/babel&quot;&gt;
+    class WrappedComponent extends React.Component {
+        render() {
+            return &lt;input name=&quot;name&quot; /&gt;;
+        }
+    }
+
+    const HOC = (WrappedComponent) =&gt; {
+        return class EnhancedComponent extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = { name: &quot;&quot; };
+            }
+            render() {
+                const newProps = {
+                    value: this.state.name,
+                    onChange: e =&gt; this.setState({name: e.target.value}),
+                }
+                return &lt;WrappedComponent 
+                    {...this.props} 
+                    {...newProps} 
+                /&gt;;
+            }
+        }
+    }
+
+    const EnhancedComponent = HOC(WrappedComponent);
+
+    const HOC2 = (WrappedComponent) =&gt; {
+        return class EnhancedComponent extends WrappedComponent {
+            render() {
+                return this.props.isRender &amp;&amp; super.render();  
+            }
+        }
+    }
+
+    const EnhancedComponent2 = HOC2(WrappedComponent);
+
+    var vm = ReactDOM.render(
+        &lt;&gt;
+            &lt;EnhancedComponent /&gt;
+            &lt;EnhancedComponent2 isRender={true} /&gt;
+        &lt;/&gt;,
+        document.getElementById(&quot;root&quot;)
+    );
+&lt;/script&gt;
+
+&lt;/html&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br></div></div><h2 id="每日一题"><a href="#每日一题" class="header-anchor">#</a> 每日一题</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>https://github.com/WindrunnerMax/EveryDay
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h2 id="参考"><a href="#参考" class="header-anchor">#</a> 参考</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>https://juejin.cn/post/6844903477798256647
+https://juejin.cn/post/6844904050236850184
+https://zh-hans.reactjs.org/docs/higher-order-components.htm
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div></div> <footer class="page-edit" style="display:none;"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">2023/4/14 11:02:16</span></div></footer> <!----> <!----> <!----></main> <!----></div></div></div></div><div class="global-ui"><div class="Sakura" data-v-248d85d6><canvas id="canvas_sakura" style="z-index:2;" data-v-248d85d6></canvas></div><!----><div class="RibbonAnimation"></div><div id="goTop" class="hide-cat" data-v-bf92849a></div><div></div><div id="live2d-widget" class="live2d-widget-container" style="position:fixed;left:65px;bottom:0px;width:135px;height:300px;z-index:99999;opacity:1;pointer-events:none;"><canvas id="live2d_canvas" width="135" height="300" class="live2d_canvas" style="position:absolute;left:0px;top:0px;width:135px;height:300px;"></canvas></div></div></div>
+    <script src="/Personal/assets/js/app.f4fc8495.js" defer></script><script src="/Personal/assets/js/3.1a2b93cd.js" defer></script><script src="/Personal/assets/js/1.79acb58f.js" defer></script><script src="/Personal/assets/js/140.d5802117.js" defer></script>
+  </body>
+</html>

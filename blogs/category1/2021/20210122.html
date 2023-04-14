@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>常用正则表达式 | 龙鱼混杂</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    <link rel="icon" href="https://pic1.zhimg.com/v2-6e0a159878fbd9af3ec10b5d15de24d7_r.jpg?source=1940ef5c">
+    <script src="/Personal/assets/js/bodyClick.js"></script>
+    <meta name="description" content="this is my blog">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <link rel="preload" href="/Personal/assets/css/0.styles.aa872aab.css" as="style"><link rel="preload" href="/Personal/assets/js/app.f4fc8495.js" as="script"><link rel="preload" href="/Personal/assets/js/3.1a2b93cd.js" as="script"><link rel="preload" href="/Personal/assets/js/1.79acb58f.js" as="script"><link rel="preload" href="/Personal/assets/js/49.9c8e57f2.js" as="script"><link rel="prefetch" href="/Personal/assets/js/10.a49c5f0b.js"><link rel="prefetch" href="/Personal/assets/js/100.1a3e3eb5.js"><link rel="prefetch" href="/Personal/assets/js/101.08ac3fb7.js"><link rel="prefetch" href="/Personal/assets/js/102.a9b2daca.js"><link rel="prefetch" href="/Personal/assets/js/103.58fc6bba.js"><link rel="prefetch" href="/Personal/assets/js/104.c9df7557.js"><link rel="prefetch" href="/Personal/assets/js/105.e7fbf2ee.js"><link rel="prefetch" href="/Personal/assets/js/106.ae3164b1.js"><link rel="prefetch" href="/Personal/assets/js/107.d878be66.js"><link rel="prefetch" href="/Personal/assets/js/108.2ea511fb.js"><link rel="prefetch" href="/Personal/assets/js/109.69ef10b0.js"><link rel="prefetch" href="/Personal/assets/js/11.ed77b503.js"><link rel="prefetch" href="/Personal/assets/js/110.66966066.js"><link rel="prefetch" href="/Personal/assets/js/111.c5683ca3.js"><link rel="prefetch" href="/Personal/assets/js/112.bc304b6a.js"><link rel="prefetch" href="/Personal/assets/js/113.f75fe200.js"><link rel="prefetch" href="/Personal/assets/js/114.4820d77d.js"><link rel="prefetch" href="/Personal/assets/js/115.8bf012a3.js"><link rel="prefetch" href="/Personal/assets/js/116.e33bd317.js"><link rel="prefetch" href="/Personal/assets/js/117.8ddd1715.js"><link rel="prefetch" href="/Personal/assets/js/118.df4351d2.js"><link rel="prefetch" href="/Personal/assets/js/119.3b48fa25.js"><link rel="prefetch" href="/Personal/assets/js/12.1ee3adb4.js"><link rel="prefetch" href="/Personal/assets/js/120.00a19fa3.js"><link rel="prefetch" href="/Personal/assets/js/121.2c34c11f.js"><link rel="prefetch" href="/Personal/assets/js/122.16b2b2b7.js"><link rel="prefetch" href="/Personal/assets/js/123.0fc9246f.js"><link rel="prefetch" href="/Personal/assets/js/124.19c5d537.js"><link rel="prefetch" href="/Personal/assets/js/125.787eb55c.js"><link rel="prefetch" href="/Personal/assets/js/126.43d69565.js"><link rel="prefetch" href="/Personal/assets/js/127.7071dd9d.js"><link rel="prefetch" href="/Personal/assets/js/128.9a65da65.js"><link rel="prefetch" href="/Personal/assets/js/129.39cd3c08.js"><link rel="prefetch" href="/Personal/assets/js/13.cd926113.js"><link rel="prefetch" href="/Personal/assets/js/130.8ae39a89.js"><link rel="prefetch" href="/Personal/assets/js/131.353010d3.js"><link rel="prefetch" href="/Personal/assets/js/132.f55c3d5b.js"><link rel="prefetch" href="/Personal/assets/js/133.3d437d93.js"><link rel="prefetch" href="/Personal/assets/js/134.b5d29471.js"><link rel="prefetch" href="/Personal/assets/js/135.9b4cbfd4.js"><link rel="prefetch" href="/Personal/assets/js/136.b11fe81d.js"><link rel="prefetch" href="/Personal/assets/js/137.623758d3.js"><link rel="prefetch" href="/Personal/assets/js/138.2b832b20.js"><link rel="prefetch" href="/Personal/assets/js/139.416337fb.js"><link rel="prefetch" href="/Personal/assets/js/14.04246f24.js"><link rel="prefetch" href="/Personal/assets/js/140.d5802117.js"><link rel="prefetch" href="/Personal/assets/js/141.fa9c119f.js"><link rel="prefetch" href="/Personal/assets/js/142.9c7ac1b7.js"><link rel="prefetch" href="/Personal/assets/js/143.d77a4017.js"><link rel="prefetch" href="/Personal/assets/js/144.a64be8e3.js"><link rel="prefetch" href="/Personal/assets/js/145.a5ae7e39.js"><link rel="prefetch" href="/Personal/assets/js/146.25b13628.js"><link rel="prefetch" href="/Personal/assets/js/147.2a360edc.js"><link rel="prefetch" href="/Personal/assets/js/148.b6a9d2c3.js"><link rel="prefetch" href="/Personal/assets/js/149.a4c1f3bd.js"><link rel="prefetch" href="/Personal/assets/js/15.f75ff2e0.js"><link rel="prefetch" href="/Personal/assets/js/150.3f5db931.js"><link rel="prefetch" href="/Personal/assets/js/151.8872fd5d.js"><link rel="prefetch" href="/Personal/assets/js/152.63f5447e.js"><link rel="prefetch" href="/Personal/assets/js/153.291e2de9.js"><link rel="prefetch" href="/Personal/assets/js/154.a53b5518.js"><link rel="prefetch" href="/Personal/assets/js/155.2a0482ef.js"><link rel="prefetch" href="/Personal/assets/js/156.1d152004.js"><link rel="prefetch" href="/Personal/assets/js/157.db8cd50a.js"><link rel="prefetch" href="/Personal/assets/js/158.ade80bfd.js"><link rel="prefetch" href="/Personal/assets/js/159.87aee519.js"><link rel="prefetch" href="/Personal/assets/js/16.48880203.js"><link rel="prefetch" href="/Personal/assets/js/160.58c27278.js"><link rel="prefetch" href="/Personal/assets/js/161.e90a6ca8.js"><link rel="prefetch" href="/Personal/assets/js/162.3f226b56.js"><link rel="prefetch" href="/Personal/assets/js/163.b98bf4af.js"><link rel="prefetch" href="/Personal/assets/js/164.a4852ef3.js"><link rel="prefetch" href="/Personal/assets/js/165.6e4f1b9c.js"><link rel="prefetch" href="/Personal/assets/js/166.2c756ea9.js"><link rel="prefetch" href="/Personal/assets/js/167.3246d70a.js"><link rel="prefetch" href="/Personal/assets/js/168.d3331d24.js"><link rel="prefetch" href="/Personal/assets/js/169.ed110c3d.js"><link rel="prefetch" href="/Personal/assets/js/17.4d9e5368.js"><link rel="prefetch" href="/Personal/assets/js/170.59fcca25.js"><link rel="prefetch" href="/Personal/assets/js/171.e562d250.js"><link rel="prefetch" href="/Personal/assets/js/172.2b3762d3.js"><link rel="prefetch" href="/Personal/assets/js/173.cf63fe79.js"><link rel="prefetch" href="/Personal/assets/js/174.024e1151.js"><link rel="prefetch" href="/Personal/assets/js/175.81254c73.js"><link rel="prefetch" href="/Personal/assets/js/176.c8d6f3bd.js"><link rel="prefetch" href="/Personal/assets/js/177.6a90efc4.js"><link rel="prefetch" href="/Personal/assets/js/178.87b713d1.js"><link rel="prefetch" href="/Personal/assets/js/179.e1015179.js"><link rel="prefetch" href="/Personal/assets/js/18.86e329d3.js"><link rel="prefetch" href="/Personal/assets/js/180.439e7595.js"><link rel="prefetch" href="/Personal/assets/js/181.1561fbab.js"><link rel="prefetch" href="/Personal/assets/js/182.ecf8b768.js"><link rel="prefetch" href="/Personal/assets/js/183.9fefc87a.js"><link rel="prefetch" href="/Personal/assets/js/184.4ab0aef5.js"><link rel="prefetch" href="/Personal/assets/js/185.a66896dc.js"><link rel="prefetch" href="/Personal/assets/js/186.2e07d4fc.js"><link rel="prefetch" href="/Personal/assets/js/187.eb906915.js"><link rel="prefetch" href="/Personal/assets/js/188.b9b037da.js"><link rel="prefetch" href="/Personal/assets/js/189.b1e46ae2.js"><link rel="prefetch" href="/Personal/assets/js/19.53697652.js"><link rel="prefetch" href="/Personal/assets/js/190.7f307253.js"><link rel="prefetch" href="/Personal/assets/js/191.29aac062.js"><link rel="prefetch" href="/Personal/assets/js/192.ba9eb13b.js"><link rel="prefetch" href="/Personal/assets/js/193.d6cbe7dd.js"><link rel="prefetch" href="/Personal/assets/js/194.0887295f.js"><link rel="prefetch" href="/Personal/assets/js/195.4b282872.js"><link rel="prefetch" href="/Personal/assets/js/196.b732f52d.js"><link rel="prefetch" href="/Personal/assets/js/197.bc0f71d1.js"><link rel="prefetch" href="/Personal/assets/js/198.aa5edaac.js"><link rel="prefetch" href="/Personal/assets/js/199.e3b5606a.js"><link rel="prefetch" href="/Personal/assets/js/20.9b1bc220.js"><link rel="prefetch" href="/Personal/assets/js/200.3d0bd63b.js"><link rel="prefetch" href="/Personal/assets/js/201.beb38f5c.js"><link rel="prefetch" href="/Personal/assets/js/202.23ec2fa7.js"><link rel="prefetch" href="/Personal/assets/js/203.14482202.js"><link rel="prefetch" href="/Personal/assets/js/204.abef9627.js"><link rel="prefetch" href="/Personal/assets/js/205.b986f8ff.js"><link rel="prefetch" href="/Personal/assets/js/206.d46a9d24.js"><link rel="prefetch" href="/Personal/assets/js/207.b9564609.js"><link rel="prefetch" href="/Personal/assets/js/208.6ddc5da4.js"><link rel="prefetch" href="/Personal/assets/js/209.aecb193a.js"><link rel="prefetch" href="/Personal/assets/js/21.5c97d83a.js"><link rel="prefetch" href="/Personal/assets/js/210.277e67b6.js"><link rel="prefetch" href="/Personal/assets/js/211.c3fdefd3.js"><link rel="prefetch" href="/Personal/assets/js/22.b51bf18f.js"><link rel="prefetch" href="/Personal/assets/js/23.05a6964c.js"><link rel="prefetch" href="/Personal/assets/js/24.6ed15e3e.js"><link rel="prefetch" href="/Personal/assets/js/25.a82c45fd.js"><link rel="prefetch" href="/Personal/assets/js/26.d92c9c4d.js"><link rel="prefetch" href="/Personal/assets/js/27.1df62d5b.js"><link rel="prefetch" href="/Personal/assets/js/28.f1c047bc.js"><link rel="prefetch" href="/Personal/assets/js/29.db3611ef.js"><link rel="prefetch" href="/Personal/assets/js/30.77ae27c3.js"><link rel="prefetch" href="/Personal/assets/js/31.b5ebe6fa.js"><link rel="prefetch" href="/Personal/assets/js/32.959eac22.js"><link rel="prefetch" href="/Personal/assets/js/33.36410f30.js"><link rel="prefetch" href="/Personal/assets/js/34.3dce65a1.js"><link rel="prefetch" href="/Personal/assets/js/35.63a0c610.js"><link rel="prefetch" href="/Personal/assets/js/36.5e273bab.js"><link rel="prefetch" href="/Personal/assets/js/37.005d77eb.js"><link rel="prefetch" href="/Personal/assets/js/38.ce8a0bc2.js"><link rel="prefetch" href="/Personal/assets/js/39.f86f3b45.js"><link rel="prefetch" href="/Personal/assets/js/4.3f3e0870.js"><link rel="prefetch" href="/Personal/assets/js/40.18e9b849.js"><link rel="prefetch" href="/Personal/assets/js/41.047678c3.js"><link rel="prefetch" href="/Personal/assets/js/42.393a4870.js"><link rel="prefetch" href="/Personal/assets/js/43.4cd452a3.js"><link rel="prefetch" href="/Personal/assets/js/44.74e152ac.js"><link rel="prefetch" href="/Personal/assets/js/45.20725514.js"><link rel="prefetch" href="/Personal/assets/js/46.a962bb25.js"><link rel="prefetch" href="/Personal/assets/js/47.8a900fbb.js"><link rel="prefetch" href="/Personal/assets/js/48.a7cbd1e2.js"><link rel="prefetch" href="/Personal/assets/js/5.ef0ede61.js"><link rel="prefetch" href="/Personal/assets/js/50.de1ddde5.js"><link rel="prefetch" href="/Personal/assets/js/51.131de45a.js"><link rel="prefetch" href="/Personal/assets/js/52.99fb0ef8.js"><link rel="prefetch" href="/Personal/assets/js/53.bf0e209a.js"><link rel="prefetch" href="/Personal/assets/js/54.7415dd40.js"><link rel="prefetch" href="/Personal/assets/js/55.a77b1a46.js"><link rel="prefetch" href="/Personal/assets/js/56.a2c7e68a.js"><link rel="prefetch" href="/Personal/assets/js/57.c09bff88.js"><link rel="prefetch" href="/Personal/assets/js/58.627f2235.js"><link rel="prefetch" href="/Personal/assets/js/59.f1b6e347.js"><link rel="prefetch" href="/Personal/assets/js/6.520a7409.js"><link rel="prefetch" href="/Personal/assets/js/60.7f4dcf0e.js"><link rel="prefetch" href="/Personal/assets/js/61.dbc144bb.js"><link rel="prefetch" href="/Personal/assets/js/62.d86d4b1f.js"><link rel="prefetch" href="/Personal/assets/js/63.81e3d1e7.js"><link rel="prefetch" href="/Personal/assets/js/64.6f98c9d3.js"><link rel="prefetch" href="/Personal/assets/js/65.16d7cf1b.js"><link rel="prefetch" href="/Personal/assets/js/66.09145e02.js"><link rel="prefetch" href="/Personal/assets/js/67.b89ccdd2.js"><link rel="prefetch" href="/Personal/assets/js/68.58d3cc6f.js"><link rel="prefetch" href="/Personal/assets/js/69.45caa885.js"><link rel="prefetch" href="/Personal/assets/js/7.e5be3dfe.js"><link rel="prefetch" href="/Personal/assets/js/70.a3a8f4f5.js"><link rel="prefetch" href="/Personal/assets/js/71.673d3b16.js"><link rel="prefetch" href="/Personal/assets/js/72.5b0db3fd.js"><link rel="prefetch" href="/Personal/assets/js/73.2a1193ad.js"><link rel="prefetch" href="/Personal/assets/js/74.636a66d7.js"><link rel="prefetch" href="/Personal/assets/js/75.a4b97eae.js"><link rel="prefetch" href="/Personal/assets/js/76.da601374.js"><link rel="prefetch" href="/Personal/assets/js/77.e2320417.js"><link rel="prefetch" href="/Personal/assets/js/78.019a8e6c.js"><link rel="prefetch" href="/Personal/assets/js/79.e428df0f.js"><link rel="prefetch" href="/Personal/assets/js/8.f084bd8d.js"><link rel="prefetch" href="/Personal/assets/js/80.347bfe47.js"><link rel="prefetch" href="/Personal/assets/js/81.f0d4a51c.js"><link rel="prefetch" href="/Personal/assets/js/82.b06c0160.js"><link rel="prefetch" href="/Personal/assets/js/83.63f5d291.js"><link rel="prefetch" href="/Personal/assets/js/84.f9df3d6a.js"><link rel="prefetch" href="/Personal/assets/js/85.80fd9820.js"><link rel="prefetch" href="/Personal/assets/js/86.2e5a350d.js"><link rel="prefetch" href="/Personal/assets/js/87.3fb920e1.js"><link rel="prefetch" href="/Personal/assets/js/88.2a637f74.js"><link rel="prefetch" href="/Personal/assets/js/89.c6f07c38.js"><link rel="prefetch" href="/Personal/assets/js/9.157533ff.js"><link rel="prefetch" href="/Personal/assets/js/90.c2c8d4d0.js"><link rel="prefetch" href="/Personal/assets/js/91.0bb7cc21.js"><link rel="prefetch" href="/Personal/assets/js/92.992da0e1.js"><link rel="prefetch" href="/Personal/assets/js/93.296c0ac8.js"><link rel="prefetch" href="/Personal/assets/js/94.8e924bb2.js"><link rel="prefetch" href="/Personal/assets/js/95.aff97b76.js"><link rel="prefetch" href="/Personal/assets/js/96.d6e852e5.js"><link rel="prefetch" href="/Personal/assets/js/97.b5a8dacf.js"><link rel="prefetch" href="/Personal/assets/js/98.daacdacf.js"><link rel="prefetch" href="/Personal/assets/js/99.347b0d6f.js">
+    <link rel="stylesheet" href="/Personal/assets/css/0.styles.aa872aab.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-7a6c954e><div data-v-7a6c954e><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-7a6c954e data-v-7a6c954e><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-548f7490 data-v-7a6c954e data-v-7a6c954e><h3 class="title" style="display:none;" data-v-548f7490 data-v-548f7490>龙鱼混杂</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-548f7490 data-v-548f7490><input type="password" value="" data-v-548f7490> <span data-v-548f7490>Konck! Knock!</span> <button data-v-548f7490>OK</button></label> <div class="footer" style="display:none;" data-v-548f7490 data-v-548f7490><span data-v-548f7490><i class="iconfont reco-theme" data-v-548f7490></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-548f7490>vuePress-theme-reco</a></span> <span data-v-548f7490><i class="iconfont reco-copyright" data-v-548f7490></i> <a data-v-548f7490><span data-v-548f7490>QHS</span>
+            
+          <span data-v-548f7490>2018 - </span>
+          2023
+        </a></span></div></div> <div class="hide" data-v-7a6c954e><header class="navbar" data-v-7a6c954e><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/Personal/" class="home-link router-link-active"><img src="/Personal/img.png" alt="龙鱼混杂" class="logo"> <span class="site-name">龙鱼混杂</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/Personal/" class="nav-link"><i class="iconfont undefined"></i>
+  首页
+</a></div><div class="nav-item"><a href="/Personal/docs/foo/" class="nav-link"><i class="iconfont undefined"></i>
+  学习路线
+</a></div><div class="nav-item"><a href="/Personal/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  无关紧要的小标签
+</a></div><div class="nav-item"><a href="/Personal/docs/practice/" class="nav-link"><i class="iconfont undefined"></i>
+  项目实战
+</a></div><div class="nav-item"><a href="/Personal/docs/articles/" class="nav-link"><i class="iconfont undefined"></i>
+  零散文章
+</a></div><div class="nav-item"><a href="/Personal/docs/together/" class="nav-link"><i class="iconfont undefined"></i>
+  一起学习
+</a></div><div class="nav-item"><a href="https://github.com/QHSWGS" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont undefined"></i>
+  github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-7a6c954e></div> <aside class="sidebar" data-v-7a6c954e><div class="personal-info-wrapper" data-v-ec2c9702 data-v-7a6c954e><img src="/Personal/img_1.png" alt="author-avatar" class="personal-img" data-v-ec2c9702> <h3 class="name" data-v-ec2c9702>
+    QHS
+  </h3> <div class="num" data-v-ec2c9702><div data-v-ec2c9702><h3 data-v-ec2c9702>42</h3> <h6 data-v-ec2c9702>文章</h6></div> <div data-v-ec2c9702><h3 data-v-ec2c9702>10</h3> <h6 data-v-ec2c9702>标签</h6></div></div> <hr data-v-ec2c9702></div> <nav class="nav-links"><div class="nav-item"><a href="/Personal/" class="nav-link"><i class="iconfont undefined"></i>
+  首页
+</a></div><div class="nav-item"><a href="/Personal/docs/foo/" class="nav-link"><i class="iconfont undefined"></i>
+  学习路线
+</a></div><div class="nav-item"><a href="/Personal/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  无关紧要的小标签
+</a></div><div class="nav-item"><a href="/Personal/docs/practice/" class="nav-link"><i class="iconfont undefined"></i>
+  项目实战
+</a></div><div class="nav-item"><a href="/Personal/docs/articles/" class="nav-link"><i class="iconfont undefined"></i>
+  零散文章
+</a></div><div class="nav-item"><a href="/Personal/docs/together/" class="nav-link"><i class="iconfont undefined"></i>
+  一起学习
+</a></div><div class="nav-item"><a href="https://github.com/QHSWGS" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont undefined"></i>
+  github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-548f7490 data-v-7a6c954e><h3 class="title" style="display:none;" data-v-548f7490 data-v-548f7490>常用正则表达式</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-548f7490 data-v-548f7490><input type="password" value="" data-v-548f7490> <span data-v-548f7490>Konck! Knock!</span> <button data-v-548f7490>OK</button></label> <div class="footer" style="display:none;" data-v-548f7490 data-v-548f7490><span data-v-548f7490><i class="iconfont reco-theme" data-v-548f7490></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-548f7490>vuePress-theme-reco</a></span> <span data-v-548f7490><i class="iconfont reco-copyright" data-v-548f7490></i> <a data-v-548f7490><span data-v-548f7490>QHS</span>
+            
+          <span data-v-548f7490>2018 - </span>
+          2023
+        </a></span></div></div> <div data-v-7a6c954e><main class="page"><div class="page-title" style="display:none;"><h1>常用正则表达式</h1> <div data-v-01d8a6a8><i class="iconfont reco-account" data-v-01d8a6a8><span data-v-01d8a6a8>QHS</span></i> <i class="iconfont reco-date" data-v-01d8a6a8><span data-v-01d8a6a8>2021-01-22</span></i> <!----> <i class="iconfont reco-tag tags" data-v-01d8a6a8><span class="tag-item" data-v-01d8a6a8>正则</span></i></div></div> <div class="theme-reco-content content__default" style="display:none;"><h2 id="_1-校验数字的表达式"><a href="#_1-校验数字的表达式" class="header-anchor">#</a> 1.校验数字的表达式</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>1. 数字：^[0-9]*$
+
+ 
+
+2. n位的数字：^\d{n}$
+
+ 
+
+3. 至少n位的数字：^\d{n,}$
+
+ 
+
+4. m-n位的数字：^\d{m,n}$
+
+ 
+
+5. 零和非零开头的数字：^(0|[1-9][0-9]*)$
+
+ 
+
+6. 非零开头的最多带两位小数的数字：^([1-9][0-9]*)+(.[0-9]{1,2})?$
+
+ 
+
+7. 带1-2位小数的正数或负数：^(\-)?\d+(\.\d{1,2})?$
+
+ 
+
+8. 正数、负数、和小数：^(\-|\+)?\d+(\.\d+)?$
+
+ 
+
+9. 有两位小数的正实数：^[0-9]+(.[0-9]{2})?$
+
+ 
+
+10. 有1~3位小数的正实数：^[0-9]+(.[0-9]{1,3})?$
+
+ 
+
+11. 非零的正整数：^[1-9]\d*$ 或 ^([1-9][0-9]*){1,3}$ 或 ^\+?[1-9][0-9]*$
+
+ 
+
+12. 非零的负整数：^\-[1-9][]0-9&quot;*$ 或 ^-[1-9]\d*$
+
+ 
+
+13. 非负整数：^\d+$ 或 ^[1-9]\d*|0$
+
+ 
+
+14. 非正整数：^-[1-9]\d*|0$ 或 ^((-\d+)|(0+))$
+
+ 
+
+15. 非负浮点数：^\d+(\.\d+)?$ 或 ^[1-9]\d*\.\d*|0\.\d*[1-9]\d*|0?\.0+|0$
+
+ 
+
+16. 非正浮点数：^((-\d+(\.\d+)?)|(0+(\.0+)?))$ 或 ^(-([1-9]\d*\.\d*|0\.\d*[1-9]\d*))|0?\.0+|0$
+
+ 
+
+17. 正浮点数：^[1-9]\d*\.\d*|0\.\d*[1-9]\d*$ 或 ^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$
+
+ 
+
+18. 负浮点数：^-([1-9]\d*\.\d*|0\.\d*[1-9]\d*)$ 或 ^(-(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*)))$
+
+ 
+
+19. 浮点数：^(-?\d+)(\.\d+)?$ 或 ^-?([1-9]\d*\.\d*|0\.\d*[1-9]\d*|0?\.0+|0)$
+
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br></div></div><h2 id="_2-校验字符的表达式"><a href="#_2-校验字符的表达式" class="header-anchor">#</a> 2.校验字符的表达式</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>1. 汉字：^[\u4e00-\u9fa5]{0,}$
+
+ 
+
+2. 英文和数字：^[A-Za-z0-9]+$ 或 ^[A-Za-z0-9]{4,40}$
+
+ 
+
+3. 长度为3-20的所有字符：^.{3,20}$
+
+ 
+
+4. 由26个英文字母组成的字符串：^[A-Za-z]+$
+
+ 
+
+5. 由26个大写英文字母组成的字符串：^[A-Z]+$
+
+ 
+
+6. 由26个小写英文字母组成的字符串：^[a-z]+$
+
+ 
+
+7. 由数字和26个英文字母组成的字符串：^[A-Za-z0-9]+$
+
+ 
+
+8. 由数字、26个英文字母或者下划线组成的字符串：^\w+$ 或 ^\w{3,20}$
+
+ 
+
+9. 中文、英文、数字包括下划线：^[\u4E00-\u9FA5A-Za-z0-9_]+$
+
+ 
+
+10. 中文、英文、数字但不包括下划线等符号：^[\u4E00-\u9FA5A-Za-z0-9]+$ 或 ^[\u4E00-\u9FA5A-Za-z0-9]{2,20}$
+
+ 
+
+11. 可以输入含有^%&amp;',;=?$\&quot;等字符：[^%&amp;',;=?$\x22]+
+
+ 
+
+12. 禁止输入含有~的字符：[^~\x22]+
+
+
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br></div></div><h2 id="_3-特殊需求表达式"><a href="#_3-特殊需求表达式" class="header-anchor">#</a> 3.特殊需求表达式</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>1. Email地址：^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$
+
+ 
+
+2. 域名：[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(/.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+/.?
+
+ 
+
+3. InternetURL：[a-zA-z]+://[^\s]* 或 ^http://([\w-]+\.)+[\w-]+(/[\w-./?%&amp;=]*)?$
+
+ 
+
+4. 手机号码（可根据目前国内收集号扩展前两位开头号码）：^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$
+
+ 
+
+5. 电话号码(&quot;XXX-XXXXXXX&quot;、&quot;XXXX-XXXXXXXX&quot;、&quot;XXX-XXXXXXX&quot;、&quot;XXX-XXXXXXXX&quot;、&quot;XXXXXXX&quot;和&quot;XXXXXXXX)：^(\(\d{3,4}-)|\d{3.4}-)?\d{7,8}$
+
+ 
+
+6. 国内电话号码(0511-4405222、021-87888822)：\d{3}-\d{8}|\d{4}-\d{7}
+
+ 
+
+7.15位身份证号：^[1-9]\d{5}\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{2}$
+
+ 
+
+8.18位身份证号：^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$
+
+ 
+
+9. 帐号是否合法(字母开头，允许5-16字节，允许字母数字下划线)：^[a-zA-Z][a-zA-Z0-9_]{4,15}$
+
+ 
+
+10. 密码(以字母开头，长度在6~18之间，只能包含字母、数字和下划线)：^[a-zA-Z]\w{5,17}$
+
+ 
+
+11. 强密码(必须包含大小写字母和数字的组合，不能使用特殊字符，长度在8-10之间)：^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,10}$
+
+ 
+
+12. 日期格式：^\d{4}-\d{1,2}-\d{1,2}
+
+ 
+
+13. 一年的12个月(01～09和1～12)：^(0?[1-9]|1[0-2])$
+
+ 
+
+14. 一个月的31天(01～09和1～31)：^((0?[1-9])|((1|2)[0-9])|30|31)$
+
+
+15. **钱的输入格式：**
+
+ 
+
+（1）有四种钱的表示形式我们可以接受:&quot;10000.00&quot; 和 &quot;10,000.00&quot;, 和没有 &quot;分&quot; 的 &quot;10000&quot; 和 &quot;10,000&quot;：^[1-9][0-9]*$
+
+ 
+
+（2）这表示任意一个不以0开头的数字,但是,这也意味着一个字符&quot;0&quot;不通过,所以我们采用下面的形式：^(0|[1-9][0-9]*)$
+
+ 
+
+（3）一个0或者一个不以0开头的数字.我们还可以允许开头有一个负号：^(0|-?[1-9][0-9]*)$
+
+ 
+
+（4）这表示一个0或者一个可能为负的开头不为0的数字.让用户以0开头好了.把负号的也去掉,因为钱总不能是负的吧.下面我们要加的是说明可能的小数部分：^[0-9]+(.[0-9]+)?$
+
+ 
+
+（5）必须说明的是,小数点后面至少应该有1位数,所以&quot;10.&quot;是不通过的,但是 &quot;10&quot; 和 &quot;10.2&quot; 是通过的：^[0-9]+(.[0-9]{2})?$
+
+ 
+
+（6）这样我们规定小数点后面必须有两位,如果你认为太苛刻了,可以这样：^[0-9]+(.[0-9]{1,2})?$
+
+ 
+
+（7）这样就允许用户只写一位小数.下面我们该考虑数字中的逗号了,我们可以这样：^[0-9]{1,3}(,[0-9]{3})*(.[0-9]{1,2})?$
+
+ 
+
+（8）1到3个数字,后面跟着任意个 逗号+3个数字,逗号成为可选,而不是必须：^([0-9]+|[0-9]{1,3}(,[0-9]{3})*)(.[0-9]{1,2})?$
+
+ 
+
+备注：这就是最终结果了,别忘了&quot;+&quot;可以用&quot;*&quot;替代如果你觉得空字符串也可以接受的话(奇怪,为什么?)最后,别忘了在用函数时去掉去掉那个反斜杠,一般的错误都在这里
+
+ 
+
+16. xml文件：^([a-zA-Z]+-?)+[a-zA-Z0-9]+\\.[x|X][m|M][l|L]$
+
+ 
+
+17. 中文字符的正则表达式：[\u4e00-\u9fa5]
+
+ 
+
+18. 双字节字符：[^\x00-\xff] (包括汉字在内，可以用来计算字符串的长度(一个双字节字符长度计2，ASCII字符计1))
+
+ 
+
+19. 空白行的正则表达式：\n\s*\r (可以用来删除空白行)
+
+ 
+
+20. HTML标记的正则表达式：&lt;(\S*?)[^&gt;]*&gt;.*?&lt;/\1&gt;|&lt;.*? /&gt; (网上流传的版本太糟糕，上面这个也仅仅能部分，对于复杂的嵌套标记依旧无能为力)
+
+ 
+
+21. 首尾空白字符的正则表达式：^\s*|\s*$或(^\s*)|(\s*$) (可以用来删除行首行尾的空白字符(包括空格、制表符、换页符等等)，非常有用的表达式)
+
+ 
+
+22. 腾讯QQ号：[1-9][0-9]{4,} (腾讯QQ号从10000开始)
+
+
+
+23. 微信号正则：/^[a-zA-Z]([-_a-zA-Z0-9]{5,19})+$/
+
+ 
+
+24. 中国邮政编码：[1-9]\d{5}(?!\d) (中国邮政编码为6位数字)
+
+ 
+
+25. IP地址：\d+\.\d+\.\d+\.\d+ (提取IP地址时有用)
+
+ 
+
+26. IP地址：((?:(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d)\\.){3}(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d))
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br><span class="line-number">134</span><br><span class="line-number">135</span><br><span class="line-number">136</span><br><span class="line-number">137</span><br></div></div></div> <footer class="page-edit" style="display:none;"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">2023/4/14 11:02:16</span></div></footer> <!----> <!----> <!----></main> <!----></div></div></div></div><div class="global-ui"><div class="Sakura" data-v-248d85d6><canvas id="canvas_sakura" style="z-index:2;" data-v-248d85d6></canvas></div><!----><div class="RibbonAnimation"></div><div id="goTop" class="hide-cat" data-v-bf92849a></div><div></div><div id="live2d-widget" class="live2d-widget-container" style="position:fixed;left:65px;bottom:0px;width:135px;height:300px;z-index:99999;opacity:1;pointer-events:none;"><canvas id="live2d_canvas" width="135" height="300" class="live2d_canvas" style="position:absolute;left:0px;top:0px;width:135px;height:300px;"></canvas></div></div></div>
+    <script src="/Personal/assets/js/app.f4fc8495.js" defer></script><script src="/Personal/assets/js/3.1a2b93cd.js" defer></script><script src="/Personal/assets/js/1.79acb58f.js" defer></script><script src="/Personal/assets/js/49.9c8e57f2.js" defer></script>
+  </body>
+</html>

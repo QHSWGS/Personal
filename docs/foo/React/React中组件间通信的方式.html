@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>React中组件间通信的方式 | 龙鱼混杂</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    <link rel="icon" href="https://pic1.zhimg.com/v2-6e0a159878fbd9af3ec10b5d15de24d7_r.jpg?source=1940ef5c">
+    <script src="/Personal/assets/js/bodyClick.js"></script>
+    <meta name="description" content="this is my blog">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <link rel="preload" href="/Personal/assets/css/0.styles.aa872aab.css" as="style"><link rel="preload" href="/Personal/assets/js/app.f4fc8495.js" as="script"><link rel="preload" href="/Personal/assets/js/3.1a2b93cd.js" as="script"><link rel="preload" href="/Personal/assets/js/1.79acb58f.js" as="script"><link rel="preload" href="/Personal/assets/js/141.fa9c119f.js" as="script"><link rel="prefetch" href="/Personal/assets/js/10.a49c5f0b.js"><link rel="prefetch" href="/Personal/assets/js/100.1a3e3eb5.js"><link rel="prefetch" href="/Personal/assets/js/101.08ac3fb7.js"><link rel="prefetch" href="/Personal/assets/js/102.a9b2daca.js"><link rel="prefetch" href="/Personal/assets/js/103.58fc6bba.js"><link rel="prefetch" href="/Personal/assets/js/104.c9df7557.js"><link rel="prefetch" href="/Personal/assets/js/105.e7fbf2ee.js"><link rel="prefetch" href="/Personal/assets/js/106.ae3164b1.js"><link rel="prefetch" href="/Personal/assets/js/107.d878be66.js"><link rel="prefetch" href="/Personal/assets/js/108.2ea511fb.js"><link rel="prefetch" href="/Personal/assets/js/109.69ef10b0.js"><link rel="prefetch" href="/Personal/assets/js/11.ed77b503.js"><link rel="prefetch" href="/Personal/assets/js/110.66966066.js"><link rel="prefetch" href="/Personal/assets/js/111.c5683ca3.js"><link rel="prefetch" href="/Personal/assets/js/112.bc304b6a.js"><link rel="prefetch" href="/Personal/assets/js/113.f75fe200.js"><link rel="prefetch" href="/Personal/assets/js/114.4820d77d.js"><link rel="prefetch" href="/Personal/assets/js/115.8bf012a3.js"><link rel="prefetch" href="/Personal/assets/js/116.e33bd317.js"><link rel="prefetch" href="/Personal/assets/js/117.8ddd1715.js"><link rel="prefetch" href="/Personal/assets/js/118.df4351d2.js"><link rel="prefetch" href="/Personal/assets/js/119.3b48fa25.js"><link rel="prefetch" href="/Personal/assets/js/12.1ee3adb4.js"><link rel="prefetch" href="/Personal/assets/js/120.00a19fa3.js"><link rel="prefetch" href="/Personal/assets/js/121.2c34c11f.js"><link rel="prefetch" href="/Personal/assets/js/122.16b2b2b7.js"><link rel="prefetch" href="/Personal/assets/js/123.0fc9246f.js"><link rel="prefetch" href="/Personal/assets/js/124.19c5d537.js"><link rel="prefetch" href="/Personal/assets/js/125.787eb55c.js"><link rel="prefetch" href="/Personal/assets/js/126.43d69565.js"><link rel="prefetch" href="/Personal/assets/js/127.7071dd9d.js"><link rel="prefetch" href="/Personal/assets/js/128.9a65da65.js"><link rel="prefetch" href="/Personal/assets/js/129.39cd3c08.js"><link rel="prefetch" href="/Personal/assets/js/13.cd926113.js"><link rel="prefetch" href="/Personal/assets/js/130.8ae39a89.js"><link rel="prefetch" href="/Personal/assets/js/131.353010d3.js"><link rel="prefetch" href="/Personal/assets/js/132.f55c3d5b.js"><link rel="prefetch" href="/Personal/assets/js/133.3d437d93.js"><link rel="prefetch" href="/Personal/assets/js/134.b5d29471.js"><link rel="prefetch" href="/Personal/assets/js/135.9b4cbfd4.js"><link rel="prefetch" href="/Personal/assets/js/136.b11fe81d.js"><link rel="prefetch" href="/Personal/assets/js/137.623758d3.js"><link rel="prefetch" href="/Personal/assets/js/138.2b832b20.js"><link rel="prefetch" href="/Personal/assets/js/139.416337fb.js"><link rel="prefetch" href="/Personal/assets/js/14.04246f24.js"><link rel="prefetch" href="/Personal/assets/js/140.d5802117.js"><link rel="prefetch" href="/Personal/assets/js/142.9c7ac1b7.js"><link rel="prefetch" href="/Personal/assets/js/143.d77a4017.js"><link rel="prefetch" href="/Personal/assets/js/144.a64be8e3.js"><link rel="prefetch" href="/Personal/assets/js/145.a5ae7e39.js"><link rel="prefetch" href="/Personal/assets/js/146.25b13628.js"><link rel="prefetch" href="/Personal/assets/js/147.2a360edc.js"><link rel="prefetch" href="/Personal/assets/js/148.b6a9d2c3.js"><link rel="prefetch" href="/Personal/assets/js/149.a4c1f3bd.js"><link rel="prefetch" href="/Personal/assets/js/15.f75ff2e0.js"><link rel="prefetch" href="/Personal/assets/js/150.3f5db931.js"><link rel="prefetch" href="/Personal/assets/js/151.8872fd5d.js"><link rel="prefetch" href="/Personal/assets/js/152.63f5447e.js"><link rel="prefetch" href="/Personal/assets/js/153.291e2de9.js"><link rel="prefetch" href="/Personal/assets/js/154.a53b5518.js"><link rel="prefetch" href="/Personal/assets/js/155.2a0482ef.js"><link rel="prefetch" href="/Personal/assets/js/156.1d152004.js"><link rel="prefetch" href="/Personal/assets/js/157.db8cd50a.js"><link rel="prefetch" href="/Personal/assets/js/158.ade80bfd.js"><link rel="prefetch" href="/Personal/assets/js/159.87aee519.js"><link rel="prefetch" href="/Personal/assets/js/16.48880203.js"><link rel="prefetch" href="/Personal/assets/js/160.58c27278.js"><link rel="prefetch" href="/Personal/assets/js/161.e90a6ca8.js"><link rel="prefetch" href="/Personal/assets/js/162.3f226b56.js"><link rel="prefetch" href="/Personal/assets/js/163.b98bf4af.js"><link rel="prefetch" href="/Personal/assets/js/164.a4852ef3.js"><link rel="prefetch" href="/Personal/assets/js/165.6e4f1b9c.js"><link rel="prefetch" href="/Personal/assets/js/166.2c756ea9.js"><link rel="prefetch" href="/Personal/assets/js/167.3246d70a.js"><link rel="prefetch" href="/Personal/assets/js/168.d3331d24.js"><link rel="prefetch" href="/Personal/assets/js/169.ed110c3d.js"><link rel="prefetch" href="/Personal/assets/js/17.4d9e5368.js"><link rel="prefetch" href="/Personal/assets/js/170.59fcca25.js"><link rel="prefetch" href="/Personal/assets/js/171.e562d250.js"><link rel="prefetch" href="/Personal/assets/js/172.2b3762d3.js"><link rel="prefetch" href="/Personal/assets/js/173.cf63fe79.js"><link rel="prefetch" href="/Personal/assets/js/174.024e1151.js"><link rel="prefetch" href="/Personal/assets/js/175.81254c73.js"><link rel="prefetch" href="/Personal/assets/js/176.c8d6f3bd.js"><link rel="prefetch" href="/Personal/assets/js/177.6a90efc4.js"><link rel="prefetch" href="/Personal/assets/js/178.87b713d1.js"><link rel="prefetch" href="/Personal/assets/js/179.e1015179.js"><link rel="prefetch" href="/Personal/assets/js/18.86e329d3.js"><link rel="prefetch" href="/Personal/assets/js/180.439e7595.js"><link rel="prefetch" href="/Personal/assets/js/181.1561fbab.js"><link rel="prefetch" href="/Personal/assets/js/182.ecf8b768.js"><link rel="prefetch" href="/Personal/assets/js/183.9fefc87a.js"><link rel="prefetch" href="/Personal/assets/js/184.4ab0aef5.js"><link rel="prefetch" href="/Personal/assets/js/185.a66896dc.js"><link rel="prefetch" href="/Personal/assets/js/186.2e07d4fc.js"><link rel="prefetch" href="/Personal/assets/js/187.eb906915.js"><link rel="prefetch" href="/Personal/assets/js/188.b9b037da.js"><link rel="prefetch" href="/Personal/assets/js/189.b1e46ae2.js"><link rel="prefetch" href="/Personal/assets/js/19.53697652.js"><link rel="prefetch" href="/Personal/assets/js/190.7f307253.js"><link rel="prefetch" href="/Personal/assets/js/191.29aac062.js"><link rel="prefetch" href="/Personal/assets/js/192.ba9eb13b.js"><link rel="prefetch" href="/Personal/assets/js/193.d6cbe7dd.js"><link rel="prefetch" href="/Personal/assets/js/194.0887295f.js"><link rel="prefetch" href="/Personal/assets/js/195.4b282872.js"><link rel="prefetch" href="/Personal/assets/js/196.b732f52d.js"><link rel="prefetch" href="/Personal/assets/js/197.bc0f71d1.js"><link rel="prefetch" href="/Personal/assets/js/198.aa5edaac.js"><link rel="prefetch" href="/Personal/assets/js/199.e3b5606a.js"><link rel="prefetch" href="/Personal/assets/js/20.9b1bc220.js"><link rel="prefetch" href="/Personal/assets/js/200.3d0bd63b.js"><link rel="prefetch" href="/Personal/assets/js/201.beb38f5c.js"><link rel="prefetch" href="/Personal/assets/js/202.23ec2fa7.js"><link rel="prefetch" href="/Personal/assets/js/203.14482202.js"><link rel="prefetch" href="/Personal/assets/js/204.abef9627.js"><link rel="prefetch" href="/Personal/assets/js/205.b986f8ff.js"><link rel="prefetch" href="/Personal/assets/js/206.d46a9d24.js"><link rel="prefetch" href="/Personal/assets/js/207.b9564609.js"><link rel="prefetch" href="/Personal/assets/js/208.6ddc5da4.js"><link rel="prefetch" href="/Personal/assets/js/209.aecb193a.js"><link rel="prefetch" href="/Personal/assets/js/21.5c97d83a.js"><link rel="prefetch" href="/Personal/assets/js/210.277e67b6.js"><link rel="prefetch" href="/Personal/assets/js/211.c3fdefd3.js"><link rel="prefetch" href="/Personal/assets/js/22.b51bf18f.js"><link rel="prefetch" href="/Personal/assets/js/23.05a6964c.js"><link rel="prefetch" href="/Personal/assets/js/24.6ed15e3e.js"><link rel="prefetch" href="/Personal/assets/js/25.a82c45fd.js"><link rel="prefetch" href="/Personal/assets/js/26.d92c9c4d.js"><link rel="prefetch" href="/Personal/assets/js/27.1df62d5b.js"><link rel="prefetch" href="/Personal/assets/js/28.f1c047bc.js"><link rel="prefetch" href="/Personal/assets/js/29.db3611ef.js"><link rel="prefetch" href="/Personal/assets/js/30.77ae27c3.js"><link rel="prefetch" href="/Personal/assets/js/31.b5ebe6fa.js"><link rel="prefetch" href="/Personal/assets/js/32.959eac22.js"><link rel="prefetch" href="/Personal/assets/js/33.36410f30.js"><link rel="prefetch" href="/Personal/assets/js/34.3dce65a1.js"><link rel="prefetch" href="/Personal/assets/js/35.63a0c610.js"><link rel="prefetch" href="/Personal/assets/js/36.5e273bab.js"><link rel="prefetch" href="/Personal/assets/js/37.005d77eb.js"><link rel="prefetch" href="/Personal/assets/js/38.ce8a0bc2.js"><link rel="prefetch" href="/Personal/assets/js/39.f86f3b45.js"><link rel="prefetch" href="/Personal/assets/js/4.3f3e0870.js"><link rel="prefetch" href="/Personal/assets/js/40.18e9b849.js"><link rel="prefetch" href="/Personal/assets/js/41.047678c3.js"><link rel="prefetch" href="/Personal/assets/js/42.393a4870.js"><link rel="prefetch" href="/Personal/assets/js/43.4cd452a3.js"><link rel="prefetch" href="/Personal/assets/js/44.74e152ac.js"><link rel="prefetch" href="/Personal/assets/js/45.20725514.js"><link rel="prefetch" href="/Personal/assets/js/46.a962bb25.js"><link rel="prefetch" href="/Personal/assets/js/47.8a900fbb.js"><link rel="prefetch" href="/Personal/assets/js/48.a7cbd1e2.js"><link rel="prefetch" href="/Personal/assets/js/49.9c8e57f2.js"><link rel="prefetch" href="/Personal/assets/js/5.ef0ede61.js"><link rel="prefetch" href="/Personal/assets/js/50.de1ddde5.js"><link rel="prefetch" href="/Personal/assets/js/51.131de45a.js"><link rel="prefetch" href="/Personal/assets/js/52.99fb0ef8.js"><link rel="prefetch" href="/Personal/assets/js/53.bf0e209a.js"><link rel="prefetch" href="/Personal/assets/js/54.7415dd40.js"><link rel="prefetch" href="/Personal/assets/js/55.a77b1a46.js"><link rel="prefetch" href="/Personal/assets/js/56.a2c7e68a.js"><link rel="prefetch" href="/Personal/assets/js/57.c09bff88.js"><link rel="prefetch" href="/Personal/assets/js/58.627f2235.js"><link rel="prefetch" href="/Personal/assets/js/59.f1b6e347.js"><link rel="prefetch" href="/Personal/assets/js/6.520a7409.js"><link rel="prefetch" href="/Personal/assets/js/60.7f4dcf0e.js"><link rel="prefetch" href="/Personal/assets/js/61.dbc144bb.js"><link rel="prefetch" href="/Personal/assets/js/62.d86d4b1f.js"><link rel="prefetch" href="/Personal/assets/js/63.81e3d1e7.js"><link rel="prefetch" href="/Personal/assets/js/64.6f98c9d3.js"><link rel="prefetch" href="/Personal/assets/js/65.16d7cf1b.js"><link rel="prefetch" href="/Personal/assets/js/66.09145e02.js"><link rel="prefetch" href="/Personal/assets/js/67.b89ccdd2.js"><link rel="prefetch" href="/Personal/assets/js/68.58d3cc6f.js"><link rel="prefetch" href="/Personal/assets/js/69.45caa885.js"><link rel="prefetch" href="/Personal/assets/js/7.e5be3dfe.js"><link rel="prefetch" href="/Personal/assets/js/70.a3a8f4f5.js"><link rel="prefetch" href="/Personal/assets/js/71.673d3b16.js"><link rel="prefetch" href="/Personal/assets/js/72.5b0db3fd.js"><link rel="prefetch" href="/Personal/assets/js/73.2a1193ad.js"><link rel="prefetch" href="/Personal/assets/js/74.636a66d7.js"><link rel="prefetch" href="/Personal/assets/js/75.a4b97eae.js"><link rel="prefetch" href="/Personal/assets/js/76.da601374.js"><link rel="prefetch" href="/Personal/assets/js/77.e2320417.js"><link rel="prefetch" href="/Personal/assets/js/78.019a8e6c.js"><link rel="prefetch" href="/Personal/assets/js/79.e428df0f.js"><link rel="prefetch" href="/Personal/assets/js/8.f084bd8d.js"><link rel="prefetch" href="/Personal/assets/js/80.347bfe47.js"><link rel="prefetch" href="/Personal/assets/js/81.f0d4a51c.js"><link rel="prefetch" href="/Personal/assets/js/82.b06c0160.js"><link rel="prefetch" href="/Personal/assets/js/83.63f5d291.js"><link rel="prefetch" href="/Personal/assets/js/84.f9df3d6a.js"><link rel="prefetch" href="/Personal/assets/js/85.80fd9820.js"><link rel="prefetch" href="/Personal/assets/js/86.2e5a350d.js"><link rel="prefetch" href="/Personal/assets/js/87.3fb920e1.js"><link rel="prefetch" href="/Personal/assets/js/88.2a637f74.js"><link rel="prefetch" href="/Personal/assets/js/89.c6f07c38.js"><link rel="prefetch" href="/Personal/assets/js/9.157533ff.js"><link rel="prefetch" href="/Personal/assets/js/90.c2c8d4d0.js"><link rel="prefetch" href="/Personal/assets/js/91.0bb7cc21.js"><link rel="prefetch" href="/Personal/assets/js/92.992da0e1.js"><link rel="prefetch" href="/Personal/assets/js/93.296c0ac8.js"><link rel="prefetch" href="/Personal/assets/js/94.8e924bb2.js"><link rel="prefetch" href="/Personal/assets/js/95.aff97b76.js"><link rel="prefetch" href="/Personal/assets/js/96.d6e852e5.js"><link rel="prefetch" href="/Personal/assets/js/97.b5a8dacf.js"><link rel="prefetch" href="/Personal/assets/js/98.daacdacf.js"><link rel="prefetch" href="/Personal/assets/js/99.347b0d6f.js">
+    <link rel="stylesheet" href="/Personal/assets/css/0.styles.aa872aab.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-7a6c954e><div data-v-7a6c954e><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-7a6c954e data-v-7a6c954e><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-548f7490 data-v-7a6c954e data-v-7a6c954e><h3 class="title" style="display:none;" data-v-548f7490 data-v-548f7490>龙鱼混杂</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-548f7490 data-v-548f7490><input type="password" value="" data-v-548f7490> <span data-v-548f7490>Konck! Knock!</span> <button data-v-548f7490>OK</button></label> <div class="footer" style="display:none;" data-v-548f7490 data-v-548f7490><span data-v-548f7490><i class="iconfont reco-theme" data-v-548f7490></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-548f7490>vuePress-theme-reco</a></span> <span data-v-548f7490><i class="iconfont reco-copyright" data-v-548f7490></i> <a data-v-548f7490><span data-v-548f7490>QHS</span>
+            
+          <span data-v-548f7490>2018 - </span>
+          2023
+        </a></span></div></div> <div class="hide" data-v-7a6c954e><header class="navbar" data-v-7a6c954e><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/Personal/" class="home-link router-link-active"><img src="/Personal/img.png" alt="龙鱼混杂" class="logo"> <span class="site-name">龙鱼混杂</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/Personal/" class="nav-link"><i class="iconfont undefined"></i>
+  首页
+</a></div><div class="nav-item"><a href="/Personal/docs/foo/" class="nav-link router-link-active"><i class="iconfont undefined"></i>
+  学习路线
+</a></div><div class="nav-item"><a href="/Personal/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  无关紧要的小标签
+</a></div><div class="nav-item"><a href="/Personal/docs/practice/" class="nav-link"><i class="iconfont undefined"></i>
+  项目实战
+</a></div><div class="nav-item"><a href="/Personal/docs/articles/" class="nav-link"><i class="iconfont undefined"></i>
+  零散文章
+</a></div><div class="nav-item"><a href="/Personal/docs/together/" class="nav-link"><i class="iconfont undefined"></i>
+  一起学习
+</a></div><div class="nav-item"><a href="https://github.com/QHSWGS" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont undefined"></i>
+  github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-7a6c954e></div> <aside class="sidebar" data-v-7a6c954e><div class="personal-info-wrapper" data-v-ec2c9702 data-v-7a6c954e><img src="/Personal/img_1.png" alt="author-avatar" class="personal-img" data-v-ec2c9702> <h3 class="name" data-v-ec2c9702>
+    QHS
+  </h3> <div class="num" data-v-ec2c9702><div data-v-ec2c9702><h3 data-v-ec2c9702>42</h3> <h6 data-v-ec2c9702>文章</h6></div> <div data-v-ec2c9702><h3 data-v-ec2c9702>10</h3> <h6 data-v-ec2c9702>标签</h6></div></div> <hr data-v-ec2c9702></div> <nav class="nav-links"><div class="nav-item"><a href="/Personal/" class="nav-link"><i class="iconfont undefined"></i>
+  首页
+</a></div><div class="nav-item"><a href="/Personal/docs/foo/" class="nav-link router-link-active"><i class="iconfont undefined"></i>
+  学习路线
+</a></div><div class="nav-item"><a href="/Personal/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  无关紧要的小标签
+</a></div><div class="nav-item"><a href="/Personal/docs/practice/" class="nav-link"><i class="iconfont undefined"></i>
+  项目实战
+</a></div><div class="nav-item"><a href="/Personal/docs/articles/" class="nav-link"><i class="iconfont undefined"></i>
+  零散文章
+</a></div><div class="nav-item"><a href="/Personal/docs/together/" class="nav-link"><i class="iconfont undefined"></i>
+  一起学习
+</a></div><div class="nav-item"><a href="https://github.com/QHSWGS" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont undefined"></i>
+  github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>css学习路线</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JavaScript学习路线</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>React学习路线</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/Personal/docs/foo/React/Context与Reducer.html" class="sidebar-link">Context与Reducer</a></li><li><a href="/Personal/docs/foo/React/Hooks与事件绑定.html" class="sidebar-link">Hooks与事件绑定</a></li><li><a href="/Personal/docs/foo/React/Hooks与普通函数的区别.html" class="sidebar-link">Hooks与普通函数的区别</a></li><li><a href="/Personal/docs/foo/React/Hooks中的useState.html" class="sidebar-link">Hooks中的useState</a></li><li><a href="/Personal/docs/foo/React/Mobx与Redux的异同.html" class="sidebar-link">Mobx与Redux的异同</a></li><li><a href="/Personal/docs/foo/React/ReactRouter的实现.html" class="sidebar-link">ReactRouter的实现</a></li><li><a href="/Personal/docs/foo/React/React中diff算法的理解.html" class="sidebar-link">React中diff算法的理解</a></li><li><a href="/Personal/docs/foo/React/React中JSX的理解.html" class="sidebar-link">React中JSX的理解</a></li><li><a href="/Personal/docs/foo/React/React中refs的理解.html" class="sidebar-link">React中refs的理解</a></li><li><a href="/Personal/docs/foo/React/React中的合成事件.html" class="sidebar-link">React中的合成事件</a></li><li><a href="/Personal/docs/foo/React/React中的纯组件.html" class="sidebar-link">React中的纯组件</a></li><li><a href="/Personal/docs/foo/React/React中的高阶组件.html" class="sidebar-link">React中的高阶组件</a></li><li><a href="/Personal/docs/foo/React/React中组件间通信的方式.html" class="active sidebar-link">React中组件间通信的方式</a></li><li><a href="/Personal/docs/foo/React/React生命周期.html" class="sidebar-link">React生命周期</a></li><li><a href="/Personal/docs/foo/React/React组件复用的方式.html" class="sidebar-link">React组件复用的方式</a></li><li><a href="/Personal/docs/foo/React/React组件的state和props.html" class="sidebar-link">React组件的state和props</a></li><li><a href="/Personal/docs/foo/React/React虚拟DOM的理解.html" class="sidebar-link">React虚拟DOM的理解</a></li><li><a href="/Personal/docs/foo/React/setState同步异步场景.html" class="sidebar-link">setState同步异步场景</a></li><li><a href="/Personal/docs/foo/React/useEffect与useLayoutEffect.html" class="sidebar-link">useEffect与useLayoutEffect</a></li><li><a href="/Personal/docs/foo/React/useMemo与useCallback.html" class="sidebar-link">useMemo与useCallback</a></li><li><a href="/Personal/docs/foo/React/受控组件和非受控组件.html" class="sidebar-link">受控组件和非受控组件</a></li><li><a href="/Personal/docs/foo/React/手写useState与useEffect.html" class="sidebar-link">手写useState与useEffect</a></li><li><a href="/Personal/docs/foo/React/有状态和无状态组件.html" class="sidebar-link">有状态和无状态组件</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue学习路线</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-548f7490 data-v-7a6c954e><h3 class="title" style="display:none;" data-v-548f7490 data-v-548f7490></h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-548f7490 data-v-548f7490><input type="password" value="" data-v-548f7490> <span data-v-548f7490>Konck! Knock!</span> <button data-v-548f7490>OK</button></label> <div class="footer" style="display:none;" data-v-548f7490 data-v-548f7490><span data-v-548f7490><i class="iconfont reco-theme" data-v-548f7490></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-548f7490>vuePress-theme-reco</a></span> <span data-v-548f7490><i class="iconfont reco-copyright" data-v-548f7490></i> <a data-v-548f7490><span data-v-548f7490>QHS</span>
+            
+          <span data-v-548f7490>2018 - </span>
+          2023
+        </a></span></div></div> <div data-v-7a6c954e><main class="page"><div class="page-title" style="display:none;"><h1>React中组件间通信的方式</h1> <div data-v-01d8a6a8><i class="iconfont reco-account" data-v-01d8a6a8><span data-v-01d8a6a8>QHS</span></i> <!----> <!----> <!----></div></div> <div class="theme-reco-content content__default" style="display:none;"><h1 id="react中组件间通信的方式"><a href="#react中组件间通信的方式" class="header-anchor">#</a> React中组件间通信的方式</h1> <p><code>React</code>中组件间通信包括父子组件、兄弟组件、隔代组件、非嵌套组件之间通信。</p> <h2 id="props"><a href="#props" class="header-anchor">#</a> Props</h2> <p><code>props</code>适用于父子组件的通信，<code>props</code>以单向数据流的形式可以很好的完成父子组件的通信，所谓单向数据流，就是数据只能通过<code>props</code>由父组件流向子组件，而子组件并不能通过修改<code>props</code>传过来的数据修改父组件的相应状态，所有的<code>props</code>都使得其父子<code>props</code>之间形成了一个单向下行绑定，父级<code>props</code>的更新会向下流动到子组件中，但是反过来则不行，这样会防止从子组件意外改变父级组件的状态，导致难以理解数据的流向而提高了项目维护难度。实际上如果传入一个基本数据类型给子组件，在子组件中修改这个值的话<code>React</code>中会抛出异常，如果对于子组件传入一个引用类型的对象的话，在子组件中修改是不会出现任何提示的，但这两种情况都属于改变了父子组件的单向数据流，是不符合可维护的设计方式的。<br>
+我们通常会有需要更改父组件值的需求，对此我们可以在父组件自定义一个处理接受变化状态的逻辑，然后在子组件中如若相关的状态改变时，就触发父组件的逻辑处理事件，在<code>React</code>中<code>props</code>是能够接受任意的入参，此时我们通过<code>props</code>传递一个函数在子组件触发并且传递值到父组件的实例去修改父组件的<code>state</code>。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;!-- 子组件 --&gt;
+import React from &quot;react&quot;;
+
+class Child extends React.PureComponent{
+    render() {
+        return (
+            &lt;&gt;
+                &lt;div&gt;接收父组件的值: {this.props.msg}&lt;/div&gt;
+                &lt;button onClick={() =&gt; this.props.changeMsg(&quot;Changed Msg&quot;)}&gt;修改父组件的值&lt;/button&gt;
+            &lt;/&gt;
+        )
+    }
+}
+
+export default Child;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;!-- 父组件 --&gt;
+import React from &quot;react&quot;;
+import Child from &quot;./child&quot;;
+
+class Parent extends React.PureComponent{
+
+    constructor(props){
+        super(props);
+        this.state = { msg: &quot;Parent Msg&quot; };
+    }
+
+    changeMsg = (msg) =&gt; {
+        this.setState({ msg });
+    }
+
+    render() {
+        return (
+            &lt;div&gt;
+                &lt;Child msg={this.state.msg} changeMsg={this.changeMsg} /&gt;
+            &lt;/div&gt;
+        )
+    }
+}
+
+export default Parent;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><h2 id="context"><a href="#context" class="header-anchor">#</a> Context</h2> <p><code>React Context</code>适用于父子组件以及隔代组件通信，<code>React Context</code>提供了一个无需为每层组件手动添加<code>props</code>就能在组件树间进行数据传递的方法。在<code>React</code>应用中数据是通过<code>props</code>属性自上而下即由父及子进行传递的，但这种做法对于某些类型的属性而言是极其繁琐的，这些属性是应用程序中许多组件都需要的，<code>Context</code>提供了一种在组件之间共享此类值的方式，而不必显式地通过组件树的逐层传递<code>props</code>，实际上<code>React-Router</code>就是使用这种方式传递数据，这也解释了为什么<code>&lt;Router&gt;</code>要在所有<code>&lt;Route</code>&gt;的外面。。<br>
+使用<code>Context</code>是为了共享那些对于一个组件树而言是全局的数据，简单来说就是在父组件中通过<code>Provider</code>来提供数据，然后在子组件中通过<code>Consumer</code>来取得<code>Provider</code>定义的数据，不论子组件有多深，只要使用了<code>Provider</code>那么就可以取得在<code>Provider</code>中提供的数据，而不是局限于只能从当前父组件的<code>props</code>属性来获取数据，只要在父组件内定义的<code>Provider</code>数据，子组件都可以调用。当然如果只是想避免层层传递<code>props</code>且传递的层数不多的情况下，可以考虑将<code>props</code>进行一个浅拷贝之后将之后组件中不再使用的<code>props</code>删除后利用<code>Spread</code>操作符即<code>{...handledProps}</code>将其展开进行传递，实现类似于<code>Vue</code>的<code>$attrs</code>与<code>$listeners</code>的<code>API</code>操作。</p> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">&quot;react&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">createNamedContext</span> <span class="token operator">=</span> <span class="token parameter">name</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> context <span class="token operator">=</span> React<span class="token punctuation">.</span><span class="token function">createContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  context<span class="token punctuation">.</span>Provider<span class="token punctuation">.</span>displayName <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">.Provider</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+  context<span class="token punctuation">.</span>Consumer<span class="token punctuation">.</span>displayName <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">.Consumer</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> context<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> context <span class="token operator">=</span> <span class="token comment">/*#__PURE__*/</span> <span class="token function">createNamedContext</span><span class="token punctuation">(</span><span class="token string">&quot;Share&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> context<span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;!-- 子组件 --&gt;
+import React from &quot;react&quot;;
+import ShareContext from &quot;./ShareContext&quot;;
+
+class Child extends React.PureComponent{
+    render() {
+        return (
+            &lt;&gt;
+                &lt;ShareContext.Consumer&gt;
+                    { /* 基于 context 值进行渲染 */ }
+                    {
+                        value =&gt; &lt;div&gt;SharedValue: {value}&lt;/div&gt;
+                    }
+                &lt;/ShareContext.Consumer&gt;
+            &lt;/&gt;
+        )
+    }
+}
+
+export default Child;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;!-- 父组件 --&gt;
+import React from &quot;react&quot;;
+import Child from &quot;./child&quot;;
+import ShareContext from &quot;./ShareContext&quot;;
+
+class Parent extends React.PureComponent{
+
+    constructor(props){
+        super(props);
+        this.state = { msg: &quot;Parent Msg&quot; };
+    }
+
+    render() {
+        return (
+            &lt;div&gt;
+                &lt;ShareContext.Provider
+                    value={100}
+                &gt;
+                    &lt;Child msg={this.state.msg} /&gt;
+                &lt;/ShareContext.Provider&gt;
+            &lt;/div&gt;
+        )
+    }
+}
+
+export default Parent;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br></div></div><h2 id="refs"><a href="#refs" class="header-anchor">#</a> Refs</h2> <p><code>Refs</code>适用于父子组件的通信，<code>Refs</code>提供了一种方式，允许我们访问<code>DOM</code>节点或在<code>render</code>方法中创建的<code>React</code>元素，在典型的<code>React</code>数据流中，<code>props</code>是父组件与子组件交互的唯一方式，要修改一个子组件，你需要使用新的<code>props</code>来重新渲染它，但是在某些情况下，需要在典型数据流之外强制修改子组件，被修改的子组件可能是一个<code>React</code>组件的实例，也可能是一个<code>DOM</code>元素，渲染组件时返回的是组件实例，而渲染<code>DOM</code>元素时返回是具体的<code>DOM</code>节点，<code>React</code>提供的这个<code>ref</code>属性，表示为对组件真正实例的引用，其实就是<code>ReactDOM.render()</code>返回的组件实例。此外需要注意避免使用<code>refs</code>来做任何可以通过声明式实现来完成的事情，通常在可以使用<code>props</code>与<code>state</code>的情况下勿依赖<code>refs</code>。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;!-- 子组件 --&gt;
+import React from &quot;react&quot;;
+
+class Child extends React.PureComponent{
+
+    render() {
+        return (
+            &lt;&gt;
+                &lt;div&gt;接收父组件的值: {this.props.msg}&lt;/div&gt;
+            &lt;/&gt;
+        )
+    }
+}
+
+export default Child;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;!-- 父组件 --&gt;
+import React from &quot;react&quot;;
+import Child from &quot;./child&quot;;
+
+class Parent extends React.PureComponent{
+
+    constructor(props){
+        super(props);
+        this.state = { msg: &quot;Parent Msg&quot; };
+        this.child = React.createRef();
+    }
+
+    componentDidMount(){
+        console.log(this.child.current); // Child {props: {…}, context: {…}, ...}
+    }
+
+    render() {
+        return (
+            &lt;div&gt;
+                &lt;Child msg={this.state.msg} ref={this.child} /&gt;
+            &lt;/div&gt;
+        )
+    }
+}
+
+export default Parent;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br></div></div><h2 id="eventbus"><a href="#eventbus" class="header-anchor">#</a> EventBus</h2> <p><code>EventBus</code>可以适用于任何情况的组件通信，在项目规模不大的情况下，完全可以使用中央事件总线<code>EventBus</code> 的方式，<code>EventBus</code>可以比较完美地解决包括父子组件、兄弟组件、隔代组件之间通信，实际上就是一个观察者模式，观察者模式建立了一种对象与对象之间的依赖关系，一个对象发生改变时将自动通知其他对象，其他对象将相应做出反应。所以发生改变的对象称为观察目标，而被通知的对象称为观察者，一个观察目标可以对应多个观察者，而且这些观察者之间没有相互联系，可以根据需要增加和删除观察者，使得系统更易于扩展。首先我们需要实现一个订阅发布类作为单例模块导出，每个需要的组件再进行<code>import</code>，当然作为<code>Mixins</code>全局静态横切也可以，或者使用<code>event</code>库，此外务必注意在组件销毁的时候卸载订阅的事件调用，否则会造成内存泄漏。</p> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code><span class="token comment">// event-bus.js</span>
+<span class="token keyword">var</span> <span class="token function-variable function">PubSub</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>handlers <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token class-name">PubSub</span><span class="token punctuation">.</span>prototype <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">constructor</span><span class="token operator">:</span> PubSub<span class="token punctuation">,</span>
+    <span class="token function-variable function">on</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">key<span class="token punctuation">,</span> handler</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 订阅</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span>key <span class="token keyword">in</span> <span class="token keyword">this</span><span class="token punctuation">.</span>handlers<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">this</span><span class="token punctuation">.</span>handlers<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>handlers<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>handler<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+             <span class="token keyword">this</span><span class="token punctuation">.</span>handlers<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>handler<span class="token punctuation">)</span><span class="token punctuation">;</span>
+             <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+    <span class="token function-variable function">once</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">key<span class="token punctuation">,</span> handler</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 一次性订阅</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span>key <span class="token keyword">in</span> <span class="token keyword">this</span><span class="token punctuation">.</span>handlers<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">this</span><span class="token punctuation">.</span>handlers<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>handlers<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>handler<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> <span class="token function-variable function">onceHandler</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+            <span class="token function">handler</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">off</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> onceHandler<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>handlers<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>onceHandler<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+    <span class="token function-variable function">off</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">key<span class="token punctuation">,</span> handler</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 卸载</span>
+        <span class="token keyword">const</span> index <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>handlers<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">findIndex</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=&gt;</span> item <span class="token operator">===</span> handler<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>index <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>handlers<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">delete</span> <span class="token keyword">this</span><span class="token punctuation">.</span>handlers<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">else</span> <span class="token keyword">this</span><span class="token punctuation">.</span>handlers<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span>index<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+    <span class="token function-variable function">commit</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">key<span class="token punctuation">,</span> <span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 触发</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>handlers<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> <span class="token string">&quot;Execute&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>handlers<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">handler</span> <span class="token operator">=&gt;</span> <span class="token function">handler</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">new</span> <span class="token class-name">PubSub</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;!-- 子组件 --&gt;
+import React from &quot;react&quot;;
+import eventBus from &quot;./event-bus&quot;;
+
+
+class Child extends React.PureComponent{
+
+    render() {
+        return (
+            &lt;&gt;
+                &lt;div&gt;接收父组件的值: {this.props.msg}&lt;/div&gt;
+                &lt;button onClick={() =&gt; eventBus.commit(&quot;ChangeMsg&quot;, &quot;Changed Msg&quot;)}&gt;修改父组件的值&lt;/button&gt;
+            &lt;/&gt;
+        )
+    }
+}
+
+export default Child;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;!-- 父组件 --&gt;
+import React from &quot;react&quot;;
+import Child from &quot;./child&quot;;
+import eventBus from &quot;./event-bus&quot;;
+
+class Parent extends React.PureComponent{
+
+    constructor(props){
+        super(props);
+        this.state = { msg: &quot;Parent Msg&quot; };
+        this.child = React.createRef();
+    }
+
+    changeMsg = (msg) =&gt; {
+        this.setState({ msg });
+    }
+
+    componentDidMount(){
+        eventBus.on(&quot;ChangeMsg&quot;, this.changeMsg);
+    }
+
+    componentWillUnmount(){
+        eventBus.off(&quot;ChangeMsg&quot;, this.changeMsg);
+
+    }
+
+    render() {
+        return (
+            &lt;div&gt;
+                &lt;Child msg={this.state.msg} ref={this.child} /&gt;
+            &lt;/div&gt;
+        )
+    }
+}
+
+export default Parent;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br></div></div><h2 id="redux"><a href="#redux" class="header-anchor">#</a> Redux</h2> <p><code>Redux</code>同样可以适用于任何情况的组件通信，<code>Redux</code>中提出了单一数据源<code>Store</code>用来存储状态数据，所有的组件都可以通过<code>Action</code>修改<code>Store</code>，也可以从<code>Store</code>中获取最新状态，使用了<code>redux</code>就可以解决多个组件的共享状态管理以及组件之间的通信问题。</p> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> createStore <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;redux&quot;</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * 这是一个 reducer，形式为 (state, action) =&gt; state 的纯函数。
+ * 描述了 action 如何把 state 转变成下一个 state。
+ *
+ * state 的形式取决于你，可以是基本类型、数组、对象、
+ * 甚至是 Immutable.js 生成的数据结构。惟一的要点是
+ * 当 state 变化时需要返回全新的对象，而不是修改传入的参数。
+ *
+ * 下面例子使用 `switch` 语句和字符串来做判断，但你可以写帮助类(helper)
+ * 根据不同的约定（如方法映射）来判断，只要适用你的项目即可。
+ */</span>
+<span class="token keyword">function</span> <span class="token function">counter</span><span class="token punctuation">(</span><span class="token parameter">state <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> action</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">switch</span> <span class="token punctuation">(</span>action<span class="token punctuation">.</span>type<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">case</span> <span class="token string">&quot;INCREMENT&quot;</span><span class="token operator">:</span> <span class="token keyword">return</span> state <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">case</span> <span class="token string">&quot;DECREMENT&quot;</span><span class="token operator">:</span> <span class="token keyword">return</span> state <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">default</span><span class="token operator">:</span> <span class="token keyword">return</span> state<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 创建 Redux store 来存放应用的状态。</span>
+<span class="token comment">// API 是 { subscribe, dispatch, getState }。</span>
+<span class="token keyword">let</span> store <span class="token operator">=</span> <span class="token function">createStore</span><span class="token punctuation">(</span>counter<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 可以手动订阅更新，也可以事件绑定到视图层。</span>
+store<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>store<span class="token punctuation">.</span><span class="token function">getState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 改变内部 state 惟一方法是 dispatch 一个 action。</span>
+<span class="token comment">// action 可以被序列化，用日记记录和储存下来，后期还可以以回放的方式执行</span>
+store<span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">&quot;INCREMENT&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 1</span>
+store<span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">&quot;INCREMENT&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 2</span>
+store<span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">&quot;DECREMENT&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 1</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br></div></div><h2 id="每日一题"><a href="#每日一题" class="header-anchor">#</a> 每日一题</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>https://github.com/WindrunnerMax/EveryDay
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h2 id="参考"><a href="#参考" class="header-anchor">#</a> 参考</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>https://zhuanlan.zhihu.com/p/76996552
+https://www.jianshu.com/p/fb915d9c99c4
+https://juejin.cn/post/6844903828945387528
+https://segmentfault.com/a/1190000023585646
+https://github.com/andyChenAn/frontEnd/issues/46
+https://blog.csdn.net/weixin_42262436/article/details/88852369
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div></div> <footer class="page-edit" style="display:none;"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">2023/4/14 11:02:16</span></div></footer> <!----> <!----> <!----></main> <!----></div></div></div></div><div class="global-ui"><div class="Sakura" data-v-248d85d6><canvas id="canvas_sakura" style="z-index:2;" data-v-248d85d6></canvas></div><!----><div class="RibbonAnimation"></div><div id="goTop" class="hide-cat" data-v-bf92849a></div><div></div><div id="live2d-widget" class="live2d-widget-container" style="position:fixed;left:65px;bottom:0px;width:135px;height:300px;z-index:99999;opacity:1;pointer-events:none;"><canvas id="live2d_canvas" width="135" height="300" class="live2d_canvas" style="position:absolute;left:0px;top:0px;width:135px;height:300px;"></canvas></div></div></div>
+    <script src="/Personal/assets/js/app.f4fc8495.js" defer></script><script src="/Personal/assets/js/3.1a2b93cd.js" defer></script><script src="/Personal/assets/js/1.79acb58f.js" defer></script><script src="/Personal/assets/js/141.fa9c119f.js" defer></script>
+  </body>
+</html>
